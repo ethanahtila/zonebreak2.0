@@ -7,6 +7,7 @@ test('multiplayer retains a quick super release and its target until the next si
  const until=async fn=>{const end=Date.now()+4000;while(!fn()){if(Date.now()>end)throw Error('Timed out');await new Promise(r=>setTimeout(r,5));}};
  await until(()=>messages.some(m=>m.type==='welcome'));const send=m=>ws.send(JSON.stringify(m));send({type:'hello',version:Z.VERSION,name:'Release test',fighter:'jolt'});send({type:'create',code:'AIMTEST',mode:'duel',fighter:'jolt'});await until(()=>app.rooms.has('AIMTEST'));send({type:'start'});await until(()=>app.matches.size===1);
  const match=[...app.matches.values()][0],s=match.state,p=s.players.find(p=>!p.bot);s.phase='playing';Object.assign(p,{x:500,y:150,charge:100,invuln:999});s.destroyedWalls=Z.mapOf(s).walls.map((_,i)=>i);for(const q of s.players)if(q!==p){q.bot=false;q.invuln=999;}
+ send({type:'input',seq:0,input:{aimX:p.x,aimY:p.y+600,aimingSuper:true}});await until(()=>p.aimingSuper===true);await until(()=>messages.some(m=>m.type==='state'&&m.state.players.some(q=>q.id===p.id&&q.aimingSuper)));assert.equal(p.charge,100);
  // Both packets arrive together: the release target points down, the next
  // ordinary aim points right. The release must survive the newer movement.
  ws._socket.cork();send({type:'input',seq:1,input:{aimX:p.x,aimY:p.y+600,super:true}});send({type:'input',seq:2,input:{aimX:p.x+500,aimY:p.y,super:false}});ws._socket.uncork();

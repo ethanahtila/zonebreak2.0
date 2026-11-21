@@ -23,10 +23,10 @@ function accessory(c,ch,r,bob){const h=fh(ch.id),acc=h%6,tone=(h>>4)%2?ch.color:
  else if(acc===4){for(let k=0;k<3;k++)polygon(c,[[-r+2+k*7,-3-bob],[-r-6+k*7,0-bob],[-r+2+k*7,3-bob]],tone);}
  else{ellipse(c,-r*.25,-bob,r*.45,r*.45,'#ffffff18');c.strokeStyle=tone;c.lineWidth=2;c.beginPath();c.arc(-r*.25,-bob,r*.45,0,TAU);c.stroke();}
  if((h>>7)%3===1)for(const x of [-r*.55,-r*.2])line(c,x,-r*.8-bob,x,r*.8-bob,'#ffffff22',2);}
-function fighter(c,p,time=0,options={}){if(p.hidden||!p.alive&&!options.portrait)return;const sk=Z.skinOf(p.skin),ch=sk?{...Z.fighter(p.fighter),color:sk.color,dark:sk.dark}:Z.fighter(p.fighter),role=ch.archetype,r=ch.r,angle=p.angle||0,stride=Math.sin((p.run||0)*TAU)*Math.min(1,Math.hypot(p.vx||0,p.vy||0)/150),team=teamColor(p.team),bob=Math.abs(stride)*1.1;
+function fighter(c,p,time=0,options={}){if(p.hidden||!p.alive&&!options.portrait)return;const sk=Z.skinOf(p.skin,p.fighter),ch=sk?{...Z.fighter(p.fighter),color:sk.color,dark:sk.dark}:Z.fighter(p.fighter),role=ch.archetype,r=ch.r,angle=p.angle||0,stride=Math.sin((p.run||0)*TAU)*Math.min(1,Math.hypot(p.vx||0,p.vy||0)/150),team=teamColor(p.team),bob=Math.abs(stride)*1.1;
  c.save();c.translate(p.x||0,p.y||0);if(p.cloak>0)c.globalAlpha*=.48;ellipse(c,0,15,r*.94,r*.38,'#10293666');if(p.invuln>0){c.strokeStyle=team+'77';c.lineWidth=2;c.beginPath();c.arc(0,-1,r+9+Math.sin(time*8),0,TAU);c.stroke();}
- if(!options.portrait){c.strokeStyle=team;c.lineWidth=3;c.beginPath();c.ellipse(0,10,r+6,(r+6)*.64,0,0,TAU);c.stroke();if(options.you){polygon(c,[[-4,-r-35],[4,-r-35],[0,-r-29]],'#eaf4db');}}
- c.save();c.rotate(angle);round(c,-10,-r*.64-3+stride*3,19,13,6,'#203a47','#142d38',2);round(c,-10,r*.64-9-stride*3,19,13,6,'#203a47','#142d38',2);
+ if(!options.portrait){const ring=superRingColor(p);if(ring){c.save();c.strokeStyle=ring;c.lineWidth=3.5;c.beginPath();c.arc(0,0,r+13,0,TAU);c.stroke();c.restore();}c.strokeStyle=team;c.lineWidth=3;c.beginPath();c.ellipse(0,10,r+6,(r+6)*.64,0,0,TAU);c.stroke();if(options.you){polygon(c,[[-4,-r-35],[4,-r-35],[0,-r-29]],'#eaf4db');}}
+ c.save();if(sk?.id==='grey')c.filter='grayscale(1)';c.rotate(angle);round(c,-10,-r*.64-3+stride*3,19,13,6,'#203a47','#142d38',2);round(c,-10,r*.64-9-stride*3,19,13,6,'#203a47','#142d38',2);
  // Rear equipment gives every role a different silhouette.
  if(role==='rook'){round(c,-r-7,-18,17,36,7,'#5e6d72','#17333d',2);for(const y of [-11,0,11])round(c,-r-3,y-2,9,4,2,'#d5b273');}
  if(role==='sprig'){round(c,-r-6,-14,13,28,5,'#e2e4c8','#17333d',2);line(c,-r,-6,-r,6,'#629f84',4);line(c,-r-5,0,-r+5,0,'#629f84',4);}
@@ -56,6 +56,7 @@ function fighter(c,p,time=0,options={}){if(p.hidden||!p.alive&&!options.portrait
  if(p.hitFlash>0){c.globalAlpha*=Math.min(.65,p.hitFlash*4);round(c,-r,-r,r*2,r*2,14,'#ffffff');}
  c.restore();if(!options.portrait){const width=ch.r*2+22;round(c,-width/2,-r-21,width,6,3,'#142d38');round(c,-width/2+1,-r-20,Math.max(0,(width-2)*p.hp/p.maxHP),4,2,team);if(p.shield>0){c.strokeStyle='#f6d78f88';c.lineWidth=3;c.beginPath();c.arc(0,0,r+5,0,TAU);c.stroke();}c.textAlign='center';c.font='600 11px system-ui';c.fillStyle='#e6eee1';c.shadowColor='#102431';c.shadowBlur=4;c.fillText(p.name+(p.level>=Z.MAX_LEVEL?' ★':''),-1,-r-27);c.shadowBlur=0;}
  c.restore();}
+function superRingColor(p){return p.alive&&!p.hidden&&p.charge>=100?(p.aimingSuper?'#ffdb4d':'#ffffff'):null;}
 function portrait(canvas,id,skin=null){const c=canvas.getContext('2d'),ch=Z.fighter(id);c.clearRect(0,0,canvas.width,canvas.height);const g=c.createLinearGradient(0,0,canvas.width,canvas.height);g.addColorStop(0,ch.dark);g.addColorStop(1,'#263f47');round(c,0,0,canvas.width,canvas.height,14,g);c.save();c.translate(canvas.width*(ch.classId==='marksman'?.43:.49),canvas.height*.5);const scale=canvas.height/75*(ch.classId==='marksman'?.88:1);c.scale(scale,scale);fighter(c,{fighter:id,skin,x:0,y:0,angle:-.4,team:0,alive:true,run:0,invuln:0,cloak:0,attackCD:0},0,{portrait:true});c.restore();}
 function aimPreview(c,own,mouse){if(mouse.superAim){superPreview(c,own,mouse);return;}const ch=Z.fighter(own.fighter),pat=ch.pattern||{},a=Math.atan2(mouse.y-own.y,mouse.x-own.x),R=ch.range,role=ch.archetype;c.save();c.lineWidth=2.5;c.strokeStyle='#ffffff';c.fillStyle='#ffffff1f';c.shadowColor='#ffffff';c.shadowBlur=8;c.lineJoin='round';
  if(role==='fuse'||pat.lob){const d=Math.min(R,Math.hypot(mouse.x-own.x,mouse.y-own.y)),tx=own.x+Math.cos(a)*d,ty=own.y+Math.sin(a)*d,mx=(own.x+tx)/2,my=(own.y+ty)/2-Math.max(55,d*.4);c.setLineDash([9,8]);c.beginPath();c.moveTo(own.x,own.y);c.quadraticCurveTo(mx,my,tx,ty);c.stroke();c.setLineDash([]);const count=pat.count||1,r=(pat.r||94)*(1+(own.pass?.wideblast||0));for(let n=0;n<count;n++){const off=(n-(count-1)/2)*(pat.spread||0),x=tx-Math.sin(a)*off,y=ty+Math.cos(a)*off;c.beginPath();c.arc(x,y,r,0,TAU);c.fill();c.stroke();}c.shadowBlur=0;c.strokeStyle='#ffffff55';c.lineWidth=1.3;c.setLineDash([4,10]);c.beginPath();c.arc(own.x,own.y,R,0,TAU);c.stroke();c.setLineDash([]);}
@@ -110,5 +111,5 @@ function scene(c,s,time,localId,mouse,dt=1/60){const own=s.players.find(p=>p.id=
   c.restore();}
  if(s.gasR>0){const r=s.gasR;c.save();c.fillStyle='#4fd16a33';c.beginPath();c.rect(0,0,s.W,s.H);c.arc(cx,cy,r,0,TAU,true);c.fill('evenodd');c.strokeStyle='#8af59acc';c.lineWidth=4;c.beginPath();c.arc(cx,cy,r,0,TAU);c.stroke();for(let i=0;i<36;i++){const a=i*TAU/36+time*.15,x=cx+Math.cos(a)*(r+30+(i%3)*25),y=cy+Math.sin(a)*(r+30+(i%3)*25);ellipse(c,x,y,6+(i%4),6+(i%4),'#6fe38755');}c.restore();}
  relTeam=null;}
-return {scene,portrait,fighter,terrain,round,ellipse,line,glow,teamColor};
+return {superRingColor,scene,portrait,fighter,terrain,round,ellipse,line,glow,teamColor};
 })();

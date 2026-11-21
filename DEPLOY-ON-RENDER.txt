@@ -1,4 +1,4 @@
-ZONEBREAK 1.2.1 — original package layout restored
+ZONEBREAK 1.2.2 — original package layout restored
 
 1. Extract this ZIP, then open the ZONEBREAK folder.
 2. On GitHub choose Add file > Upload files.
@@ -31,9 +31,11 @@ Folder guide:
 If .node-version does not upload, setting NODE_VERSION=24 in Render handles it.
 There is no folder named version in the package. Do not flatten vendor/ws/lib.
 
-This keeps the updated 1.2.1 game, not the older 1.0.5 gameplay from the example.
+This keeps the updated 1.2.2 game, not the older 1.0.5 gameplay from the example.
 It changes packaging/deployment settings only. All artwork, fighters, modes and
 saved-data logic are unchanged. PLAY.html is already generated and included.
 
 CONTROLS UPDATE: Hold Q/right mouse to aim supers; release to cast. Escape frees
 the cursor. Normal aim always uses the outer edge of the white weapon guide.
+
+Grey defaults, white/yellow super rings and lower lootbox upgrade odds included.

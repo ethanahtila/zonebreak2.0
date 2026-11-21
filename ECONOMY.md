@@ -1,3 +1,17 @@
+# Economy update — 1.2.2
+
+Lootboxes have six clicks with per-click upgrades of 45%, 25%, 12% and 5% for
+Rare, Epic, Mythic and Legendary respectively. Five daily win lootboxes remain;
+Trophy Road/Pass bonuses are additional. Existing lootboxes retain their current
+rarity and clicks. Guaranteed Legendary rewards remain guaranteed Legendary.
+
+Every fighter owns Grey by default. Signature colors preserve each fighter's
+previous palette and can be bought in the rotating shop. Purchased colors persist.
+
+The older economy notes below are historical and predate the expanded game.
+
+---
+
 # ZONEBREAK economy — 1.0.5
 
 Coins purchase levels and individual abilities; credits recruit selected fighters. Trophy counters stay individual. Their lifetime combined total advances a personalized road with varied spacing and rewards. No direct fighter rewards remain on the road.

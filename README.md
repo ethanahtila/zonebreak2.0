@@ -1,3 +1,42 @@
+# ZONEBREAK 1.2.2 — grey defaults, super rings and lootboxes
+
+Every fighter's default color is Grey. New profiles own only Grey; old free
+Original/null selections migrate to Grey. Purchased colors and player progress
+are preserved. Old character palettes remain available as paid Signature colors
+in the rotating shop. Grey character bodies and weapons are monochrome; team
+markers keep their team colors for readability.
+
+A white ring shows a living, visible fighter has a fully charged super. It turns
+yellow while the player holds Q/right mouse to aim. This state is synchronized
+for multiplayer and clears on cast, pause, death or respawn.
+
+Reward containers are called Lootboxes in the menu, results, Trophy Road, Battle
+Pass and opening screen. The menu displays how many unopened lootboxes are ready;
+the opening screen separately displays the five-per-day win allowance. Bonus
+lootboxes do not use that allowance. Six upgrade attempts remain per lootbox.
+
+| Per-click upgrade | Previous | New |
+| --- | --- | --- |
+| Common to Rare | 60% | 45% |
+| Rare to Epic | 40% | 25% |
+| Epic to Mythic | 25% | 12% |
+| Mythic to Legendary | 12% | 5% |
+
+Reward amounts, the five daily win lootboxes, and guaranteed Legendary Trophy
+Road lootboxes are unchanged. Previously opened and part-opened lootboxes keep
+their rewards, clicks and current rarity. Remaining clicks use the new odds.
+
+The enclosing ZONEBREAK folder, bundled vendor folder, Render commands and saved
+profile key are unchanged. Build: `npm ci --omit=dev`; Start: `npm start`;
+Health Check Path: `/health`. Keep your existing working Node service settings.
+
+Focused checks:
+`node --test test/lootbox-cosmetics.test.cjs test/aim-controls.test.cjs test/aim-network.test.cjs test/deploy.test.cjs`
+
+The historical notes and legacy gameplay tests below predate the expanded game.
+
+---
+
 # ZONEBREAK 1.2.1 — captured aiming
 
 - Play captures and hides the mouse. If the browser requires another click after
