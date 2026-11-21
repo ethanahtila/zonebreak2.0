@@ -1,6 +1,6 @@
 (function(root,factory){const api=factory(typeof module==='object'&&module.exports?require('./roster.js'):root.ZoneRoster);if(typeof module==='object'&&module.exports)module.exports=api;else root.Zone=api;})(typeof globalThis!=='undefined'?globalThis:this,(Roster)=>{
 'use strict';
-const VERSION='1.2.0',DT=1/30,W=1280,H=860,TAU=Math.PI*2,clamp=(v,a,b)=>Math.max(a,Math.min(b,v)),dist=(a,b)=>Math.hypot(a.x-b.x,a.y-b.y);
+const VERSION='1.2.1',DT=1/30,W=1280,H=860,TAU=Math.PI*2,clamp=(v,a,b)=>Math.max(a,Math.min(b,v)),dist=(a,b)=>Math.hypot(a.x-b.x,a.y-b.y);
 const fighters=[
 {id:'rook',name:'Rook',role:'Tank',tag:'HOLD THE FRONT',color:'#f5bc63',dark:'#9f653b',hp:7600,speed:205,range:100,damage:1660,reload:1.05,rate:.64,r:25,description:'A walking fortress. Devastating at arm’s length, but needs cover to close the gap.',attack:'Pile Driver',super:'Faultline',superInfo:'Charge forward, slam nearby enemies, and gain a brief shield.',gadgets:[{name:'Iron Skin',info:'Take 40% less damage for 3 seconds.',cd:17},{name:'Second Wind',info:'Instantly restore 22% of maximum health.',cd:22}],passives:[{name:'Last Stand',info:'Take 15% less damage while below 35% health.'},{name:'Heavy Hands',info:'Basic hits briefly slow the target.'}]},
 {id:'jolt',name:'Jolt',role:'Damage dealer',tag:'MAKE EVERY BURST COUNT',color:'#8bc9ff',dark:'#466cb1',hp:4500,speed:230,range:475,damage:1050,reload:1,rate:.46,r:20,description:'A mid-range burst specialist. Consistent pressure, high damage, and a precise piercing super.',attack:'Tri-Burst',super:'Rail Surge',superInfo:'Fire a powerful piercing energy shot. Walls still block it.',gadgets:[{name:'Speedloader',info:'Instantly refill all three ammo cells.',cd:18},{name:'Power Cell',info:'The next basic attack within 5 seconds deals 45% more damage.',cd:19}],passives:[{name:'Deadeye',info:'Deal 12% more basic damage beyond half your range.'},{name:'Rapid Cycle',info:'Reload ammo 15% faster.'}]},
@@ -180,6 +180,14 @@ function rotation(modeId,now=Date.now()){const kind=mapKind(modeId),slot=Math.fl
 function rankedDraw(now=Date.now()){const slot=Math.floor(now/300000),R=mrng(Math.imul(slot,2654435761));const m=RANKED_MODES[Math.floor(R()*RANKED_MODES.length)],idx=Math.floor(R()*MAPS_PER_MODE);return {mode:m,mapId:m+':'+idx,name:MAP_NAMES[m][idx],slot,next:(slot+1)*300000};}
 const maps=new Proxy({},{get:(_,id)=>typeof id==='string'?getMap(id.includes(':')?id:rotation(id).mapId):undefined});
 const mapOf=s=>getMap(s.mapId);
+// Stable virtual aim radius: turn sensitivity never increases near the fighter.
+function turnAim(angle,dx,dy){const R=480,x=Math.cos(angle)*R+clamp(Number(dx)||0,-120,120),y=Math.sin(angle)*R+clamp(Number(dy)||0,-120,120);return Math.atan2(y,x);}
+function superRange(id){const c=fighter(id),s=c.superSpec;
+ if(s)return clamp(s.range||s.shots?.range||s.dash||c.range,60,1200);
+ const ranges={deadstraight:950,crosswind:820,constellation:880,pinningshot:850,recoilshot:900,rally:190,thorns:160,furnace:210,hook:290,starburst:500,breach:530,return:570,refraction:510,heartwave:225,lifeline:600,halo:300,rescue:220,carpet:c.range,wildfire:c.range,rain:c.range,impact:c.range,nightfall:195,razordive:210,stormstep:340,soulrend:450};
+ return clamp(ranges[c.superKind]||({rook:235,jolt:640,sprig:310,fuse:c.range,wisp:305,relay:c.range}[c.archetype])||c.range,60,1200);
+}
+function aimPoint(p,angle,superAim=false,distance){const limit=superAim?superRange(p.fighter):fighter(p.fighter).range,r=superAim?clamp(Number.isFinite(distance)?distance:limit,0,limit):limit;return {x:p.x+Math.cos(angle)*r,y:p.y+Math.sin(angle)*r};}
 const botLevelFor=t=>clamp(1+Math.floor((Number(t)||0)/25),1,MAX_LEVEL);
 const fighter=id=>fighters.find(c=>c.id===id)||fighters[0],mode=id=>modes.find(c=>c.id===id)||modes[0];
 function legacyLevelFromXP(xp=0){xp=Math.max(0,Number(xp)||0);let level=1;while(level<MAX_LEVEL&&xp>=legacyXPForLevel(level+1))level++;return level;}
@@ -256,7 +264,7 @@ function customSuper(s,p,i,c,a){const at=aimed(p,i,c.range),scale=c.scale*(c.cla
  default:return false;
  }return true;
 }
-function superMove(s,p,i){if(p.clone){const k=(s.clones||[]).find(k=>k.id===p.clone);p.clone=null;if(k&&p.alive){const x=p.x,y=p.y;p.x=k.x;p.y=k.y;k.life=0;walk(s,p,0,0);effect(s,'swap',x,y,{team:p.team,r:50,life:.5,max:.5});effect(s,'swap',p.x,p.y,{team:p.team,r:50,life:.5,max:.5});emit(s,'swap',{source:p.id});return true;}}if(p.charge<100)return false;if(p.spawnGuard){p.invuln=0;p.spawnGuard=false;}p.charge=0;p.lastAttack=s.time;p.reveal=1.4;p.cloak=0;const c=stats(p.fighter,lv(p)),a=Math.atan2(i.aimY-p.y,i.aimX-p.x);p.angle=a;
+function superMove(s,p,i){const rawX=Number(i?.aimX),rawY=Number(i?.aimY),dx=Number.isFinite(rawX)?rawX-p.x:Math.cos(p.angle||0),dy=Number.isFinite(rawY)?rawY-p.y:Math.sin(p.angle||0),point=aimPoint(p,Math.atan2(dy,dx),true,Math.hypot(dx,dy));i={...i,aimX:point.x,aimY:point.y};if(p.clone){const k=(s.clones||[]).find(k=>k.id===p.clone);p.clone=null;if(k&&p.alive){const x=p.x,y=p.y;p.x=k.x;p.y=k.y;k.life=0;walk(s,p,0,0);effect(s,'swap',x,y,{team:p.team,r:50,life:.5,max:.5});effect(s,'swap',p.x,p.y,{team:p.team,r:50,life:.5,max:.5});emit(s,'swap',{source:p.id});return true;}}if(p.charge<100)return false;if(p.spawnGuard){p.invuln=0;p.spawnGuard=false;}p.charge=0;p.lastAttack=s.time;p.reveal=1.4;p.cloak=0;const c=stats(p.fighter,lv(p)),a=Math.atan2(i.aimY-p.y,i.aimX-p.x);p.angle=a;
  if(specSuper(s,p,i,c,a)){}
  else if(customSuper(s,p,i,c,a)){}
  else if(base(p)==='rook'){walk(s,p,Math.cos(a)*Math.min(235,Math.hypot(i.aimX-p.x,i.aimY-p.y)),Math.sin(a)*Math.min(235,Math.hypot(i.aimX-p.x,i.aimY-p.y)));p.shield=2.6;breakWalls(s,p,p.x,p.y,105,'super');aoe(s,p,p.x,p.y,140,1900*c.scale);for(const q of s.players)if(q.team!==p.team&&q.alive&&dist(p,q)<165)q.slow=1.2;}
@@ -389,5 +397,5 @@ function step(s,commands={}){if(s.ended)return;s.tick++;for(const e of s.effects
 }
 function predict(s,p,raw){if(!p?.alive||s.phase!=='playing')return;const i=input(raw),c=stats(p.fighter,lv(p));p.vx=i.x*speedOf(s,p,c);p.vy=i.y*speedOf(s,p,c);walk(s,p,p.vx*DT,p.vy*DT);p.run+=Math.hypot(p.vx,p.vy)*DT/50;p.angle=Math.atan2(i.aimY-p.y,i.aimX-p.x);}
 function view(s,team){return {...s,players:s.players.map(p=>{const hidden=p.alive&&p.team!==team&&!s.players.some(q=>q.team===team&&q.alive&&canSee(s,q,p));const q={...p};delete q.ai;delete q.previous;if(hidden){q.x=null;q.y=null;q.hidden=true;}return q;})};}
-return {GEARS,GEAR_LEVELS,SKINS,skinOf,MODE_UNLOCKS,RANKED_MODES,MAPS_PER_MODE,MAP_KINDS,getMap,rotation,rankedDraw,teamOf,botLevelFor,lv,passiveOf,mapOf,VERSION,MAX_LEVEL,START_STAT_SCALE,DT,W,H,fighters,classes,rarities,GADGET_LEVELS,PASSIVE_LEVELS,modes,maps,fighter,mode,stats,loadout,input,create,step,move,predict,walk,activeWalls,breakWalls,deployTurret,segmentRect,clearLine,inBush,canSee,findPath,attack,gadget,superMove,damage,heal,aoe,view,reward,legacyXPForLevel,legacyLevelFromXP,clamp};
+return {turnAim,superRange,aimPoint,GEARS,GEAR_LEVELS,SKINS,skinOf,MODE_UNLOCKS,RANKED_MODES,MAPS_PER_MODE,MAP_KINDS,getMap,rotation,rankedDraw,teamOf,botLevelFor,lv,passiveOf,mapOf,VERSION,MAX_LEVEL,START_STAT_SCALE,DT,W,H,fighters,classes,rarities,GADGET_LEVELS,PASSIVE_LEVELS,modes,maps,fighter,mode,stats,loadout,input,create,step,move,predict,walk,activeWalls,breakWalls,deployTurret,segmentRect,clearLine,inBush,canSee,findPath,attack,gadget,superMove,damage,heal,aoe,view,reward,legacyXPForLevel,legacyLevelFromXP,clamp};
 });

@@ -34,3 +34,5 @@ body.playing #arena{cursor:none}
 .pass-levels span{font-size:9px;border:1px solid #c3d5b822;padding:5px 2px;text-align:center}.pass-levels span.got{background:#d8c39322;border-color:#d8c393}.pass-levels span.chest{color:#f5d18e}
 .meta-offer{background:#bad5be06;color:inherit;transition:border-color .2s,transform .2s}.meta-offer:hover:not(:disabled){border-color:#d8c393;transform:translateY(-2px)}.meta-offer:disabled{opacity:.55}
 .meta-offer strong{display:block;font-size:11px;margin-top:6px}.meta-offer small{font-size:9px;color:#d8c393}
+
+#captureHint{position:fixed;z-index:12;left:50%;top:45%;transform:translate(-50%,-50%);background:#17333cf2;border:2px solid #eff0d9;border-radius:12px;padding:20px 28px;color:white;font-weight:800;letter-spacing:1px}body.playing:not(.mouse-locked) #arena{cursor:pointer}

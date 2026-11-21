@@ -1,4 +1,31 @@
-# ZONEBREAK 1.2.0 — deployment
+# ZONEBREAK 1.2.1 — captured aiming
+
+- Play captures and hides the mouse. If the browser requires another click after
+  online matchmaking, click the capture prompt or arena. That click does not fire.
+- Normal attacks aim at the full-range edge of the white guide. Relative mouse
+  movement turns the guide with a fixed virtual radius instead of a close cursor.
+- Hold Q or right mouse to aim your super. Move the target within its finite range,
+  then release to cast. Basic attacks pause while targeting. Multiple held super
+  controls must all be released before the cast happens.
+- Escape opens the match menu and releases the mouse; Back to the Fight captures
+  it again. Pausing, switching away, death or leaving cancels a held super.
+- The server clamps super target range and retains quick release events between
+  simulation ticks. This applies to offline play and multiplayer.
+
+Deployment layout and commands are unchanged. Upload all contents of ZONEBREAK,
+including vendor/ and test/, and retain your working Render Node service settings.
+Build: `npm ci --omit=dev`; Start: `npm start`; Health: `/health`.
+
+Run the focused controls and deployment checks with:
+`node --test test/aim-controls.test.cjs test/aim-network.test.cjs test/deploy.test.cjs`
+These exercise the real client code with a DOM/input fixture, all 154 super ranges,
+a live WebSocket super release, and production HTTP/WebSocket startup. A physical
+browser pointer-lock playtest remains a manual check. The older gameplay tests
+below predate the 1.2.0 expansion.
+
+---
+
+# ZONEBREAK 1.2.1 — deployment
 
 The ZIP uses the same ZONEBREAK/ folder layout as the supplied working example.
 Read **DEPLOY-ON-RENDER.txt** for upload instructions and a folder checklist.
