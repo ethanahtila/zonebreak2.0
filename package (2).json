@@ -1,0 +1,14 @@
+{
+  "name": "zonebreak",
+  "version": "1.2.0",
+  "private": true,
+  "description": "A compact original top-down team arena game.",
+  "engines": {
+    "node": ">=24 <25"
+  },
+  "scripts": {
+    "start": "node server.cjs",
+    "test": "node --test test/*.test.cjs",
+    "build": "node --check server.cjs && node --check core.js && node --check economy.js && node --check app.js && node --check render.js && node build.cjs"
+  }
+}

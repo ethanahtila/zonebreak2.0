@@ -1,0 +1,40 @@
+ZONEBREAK 1.2.0 — Render deployment repair (gameplay unchanged)
+
+1. Extract the ZIP on your computer. Upload the EXTRACTED CONTENTS to GitHub.
+   Do not upload the ZIP itself. Preserve vendor/ws and its lib folder.
+2. At the repository top level you should see package.json, package-lock.json,
+   server.cjs, index.html, core.js, render.yaml and the vendor folder together.
+3. Render service type: Web Service. Runtime: Node.
+   If files are at repository top level: leave Root Directory blank.
+   If files remain inside a zonebreak folder: Root Directory = zonebreak.
+   If you use another folder, use that exact repository-relative path instead.
+4. Build Command: npm ci --omit=dev && npm run build
+   Start Command: npm start
+   Health Check Path: /health
+   Environment variable: NODE_VERSION = 24
+5. Verify Render uses the correct GitHub repository and branch. Save settings.
+   After all files are committed, choose Manual Deploy > Deploy latest commit.
+6. Check https://YOUR-SERVICE.onrender.com/health. It should return JSON with
+   ok: true and version: 1.2.0. Open the service root to play online.
+
+Do not use a Static Site for this game: server.cjs runs multiplayer WebSockets.
+Do not set a Publish Directory. Health Check Path is a path, not a shell command.
+Do not change Render's PORT variable: the included server already reads it and
+listens on 0.0.0.0. Keep this multiplayer service at one instance.
+
+If deployment still fails, send the final 20–30 lines of the Render deploy log.
+An ENOENT/package.json error generally means the Root Directory is incorrect.
+A missing ./vendor/ws module generally means its folder was not uploaded.
+A build error saying Missing script: build means the previous package.json is
+still deployed. Check Render's deployed commit against GitHub's latest commit.
+
+Progress remains saved in each player's browser; this is not a database update.
+
+EUSAGE / package-lock mismatch (the reported Render error)
+Replace BOTH package.json and package-lock.json at the GAME ROOT with the pair
+from this archive, in the same commit. Do not use vendor/ws/package.json as the
+game root package.json. The game-root package name must be zonebreak; the nested
+library package name is ws and must remain under vendor/ws.
+This game has no top-level npm dependencies: vendor/ws is included directly.
+Do not add eslint, mocha, benchmark or ws development dependencies to the game.
+Once committed, use Render Manual Deploy > Clear build cache & deploy.
