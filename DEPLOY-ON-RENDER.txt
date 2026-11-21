@@ -1,40 +1,36 @@
-ZONEBREAK 1.2.0 — Render deployment repair (gameplay unchanged)
+ZONEBREAK 1.2.0 — original package layout restored
 
-1. Extract the ZIP on your computer. Upload the EXTRACTED CONTENTS to GitHub.
-   Do not upload the ZIP itself. Preserve vendor/ws and its lib folder.
-2. At the repository top level you should see package.json, package-lock.json,
-   server.cjs, index.html, core.js, render.yaml and the vendor folder together.
-3. Render service type: Web Service. Runtime: Node.
-   If files are at repository top level: leave Root Directory blank.
-   If files remain inside a zonebreak folder: Root Directory = zonebreak.
-   If you use another folder, use that exact repository-relative path instead.
-4. Build Command: npm ci --omit=dev && npm run build
+1. Extract this ZIP, then open the ZONEBREAK folder.
+2. On GitHub choose Add file > Upload files.
+3. Drag ALL the CONTENTS of ZONEBREAK onto that page TOGETHER, including the
+   test folder and vendor folder. Do not upload the ZIP. Do not move the files
+   from inside vendor/ws to the top level. Commit the upload.
+4. At GitHub's top level, package.json, package-lock.json, server.cjs, index.html,
+   test/ and vendor/ should be visible together.
+5. Render: use a Node Web Service and these exact settings:
+   Root Directory: LEAVE BLANK (do not type these words)
+   Build Command: npm ci --omit=dev
    Start Command: npm start
    Health Check Path: /health
    Environment variable: NODE_VERSION = 24
-5. Verify Render uses the correct GitHub repository and branch. Save settings.
-   After all files are committed, choose Manual Deploy > Deploy latest commit.
-6. Check https://YOUR-SERVICE.onrender.com/health. It should return JSON with
-   ok: true and version: 1.2.0. Open the service root to play online.
+6. Save and choose Manual Deploy > Clear build cache & deploy.
 
-Do not use a Static Site for this game: server.cjs runs multiplayer WebSockets.
-Do not set a Publish Directory. Health Check Path is a path, not a shell command.
-Do not change Render's PORT variable: the included server already reads it and
-listens on 0.0.0.0. Keep this multiplayer service at one instance.
+If you upload the enclosing ZONEBREAK folder itself, rather than its contents,
+Root Directory must instead be ZONEBREAK (case-sensitive).
 
-If deployment still fails, send the final 20–30 lines of the Render deploy log.
-An ENOENT/package.json error generally means the Root Directory is incorrect.
-A missing ./vendor/ws module generally means its folder was not uploaded.
-A build error saying Missing script: build means the previous package.json is
-still deployed. Check Render's deployed commit against GitHub's latest commit.
+The game's package.json is named zonebreak internally. vendor/ws/package.json
+is named ws. Both are intentional, separate files in different folders.
+Replace BOTH root package files in the same commit. Mixing the nested ws
+package.json with the root package-lock.json causes the EUSAGE dependency error.
 
-Progress remains saved in each player's browser; this is not a database update.
+Folder guide:
+  test/       optional automated checks; not needed to run the live game
+  vendor/ws/  required bundled multiplayer library; preserve its lib subfolder
+  .node-version  Node version hint; may be hidden on your computer
 
-EUSAGE / package-lock mismatch (the reported Render error)
-Replace BOTH package.json and package-lock.json at the GAME ROOT with the pair
-from this archive, in the same commit. Do not use vendor/ws/package.json as the
-game root package.json. The game-root package name must be zonebreak; the nested
-library package name is ws and must remain under vendor/ws.
-This game has no top-level npm dependencies: vendor/ws is included directly.
-Do not add eslint, mocha, benchmark or ws development dependencies to the game.
-Once committed, use Render Manual Deploy > Clear build cache & deploy.
+If .node-version does not upload, setting NODE_VERSION=24 in Render handles it.
+There is no folder named version in the package. Do not flatten vendor/ws/lib.
+
+This keeps the updated 1.2.0 game, not the older 1.0.5 gameplay from the example.
+It changes packaging/deployment settings only. All artwork, fighters, modes and
+saved-data logic are unchanged. PLAY.html is already generated and included.
