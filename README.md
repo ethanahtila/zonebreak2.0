@@ -1,3 +1,33 @@
+# ZONEBREAK 1.2.7 — artillery aiming and Friends bot difficulty
+
+Normal artillery attacks now have a movable landing marker. Move the captured
+mouse inward, outward or sideways to choose a point anywhere in the throw
+radius, just as with super aiming. The throw arc and landing area follow that
+point and actual bombs use it. Targets are bounded by both throw range and the
+playable map. The target follows the fighter while moving; super targeting has
+its own temporary target and returns to the normal landing marker afterward.
+Other direct-fire fighters retain their existing full-range aim and turning.
+
+In a Friends lobby, the host can choose **Bot Difficulty**: Rookie, Beginner,
+Normal or Veteran. Normal is the default. Everyone sees the setting; only the
+host may change it, and only between matches. It applies to bots filling empty
+seats and to bots taking over disconnected fighters. It persists for replays
+and after host migration. Bot fighter levels and loadouts still follow trophies;
+this setting changes AI skill, not upgrade progression. Ranked and public online
+matchmaking retain their existing difficulty settings.
+
+Hypercharge purchases, poison, lootboxes, grey defaults, match-leaving rules,
+map layouts and saved profiles are unchanged. Render settings are unchanged:
+Build `npm ci --omit=dev`, Start `npm start`, Health Check Path `/health`.
+Upload all ZONEBREAK contents, preserving vendor/ and test/.
+
+Focused checks:
+`node --test test/artillery-friends.test.cjs test/hyper-purchase.test.cjs test/hypercharge.test.cjs test/lootbox-cosmetics.test.cjs test/aim-controls.test.cjs test/aim-network.test.cjs test/deploy.test.cjs`
+
+Earlier release notes follow for reference.
+
+---
+
 # ZONEBREAK 1.2.6 — hypercharge purchase
 
 Hypercharge is a separate, permanent **2,500-coin purchase per fighter** in that
