@@ -1,3 +1,52 @@
+# ZONEBREAK 1.3.0 — 1,400 fighters
+
+Seven classes, 200 fighters each. Original IDs and saved progression are preserved.
+
+| Rarity | Per class | Total |
+| --- | ---: | ---: |
+| common | 50 | 350 |
+| rare | 50 | 350 |
+| epic | 40 | 280 |
+| mythic | 30 | 210 |
+| legendary | 25 | 175 |
+| ultra | 5 | 35 |
+
+The 1,225 additions are built from a deterministic modular kit grammar. They combine
+class attack chassis with cadence, bank, recall, helix, bloom, tether and wake
+techniques. Kits share underlying mechanics, with different complete attack,
+super, gadget, conditional-passive and appearance configurations. They are not
+1,225 independently hand-animated characters. New rarity assignments follow kit
+complexity; rarity is not a direct stat multiplier. The earlier 175 kits and
+rarities remain intact. Ultra now appears in all seven classes, with five each.
+
+Each new fighter has four purchasable gadget options and four purchasable passive
+options. Gadgets combine bounded effects and targeting/placement rules; passive
+doctrines add conditional bonuses that are reevaluated during play. Their full
+descriptions appear in the fighter menu. Unlock levels and prices stay unchanged.
+Grey remains the free starting color; other colors retain their purchase rules.
+
+Class browsing now paints 25 portrait cards at a time, with eight pages per
+class, search by name/attack/playstyle, and a rarity filter. Searches include
+locked fighters, who can still be tried in Training. Fighter lookups use an
+index, and live snapshots contain only active match state, not all 1,400 kits.
+Training retains both ponds and its left-side medic. Other maps are unchanged.
+
+Render settings are unchanged: Node 24; Build `npm ci --omit=dev`; Start
+`npm start`; Health Check Path `/health`. Upload the contents of ZONEBREAK with
+vendor/ and test/ in place. PLAY.html is included for standalone practice.
+
+Current checks:
+`node --test test/grand-roster.test.cjs test/arsenal.test.cjs test/peculiar.test.cjs test/artillery-friends.test.cjs test/hyper-purchase.test.cjs test/hypercharge.test.cjs test/lootbox-cosmetics.test.cjs test/aim-controls.test.cjs test/aim-network.test.cjs test/deploy.test.cjs`
+
+These test combat, all new kit options, saved-profile migration, pagination,
+conditional passives and real WebSocket connections. Native canvas checks cover
+all portraits and sampled attack scenes. Large-scale live browser balance testing
+remains useful; automated uniqueness checks establish distinct configurations,
+not perfect competitive balance. Historical release notes/tests below can retain
+old roster counts and are not the current acceptance suite.
+
+## Earlier notes
+
 # ZONEBREAK 1.2.9 — full roster basic-attack rework
 
 All 150 non-tank fighters now have individual basic attack configurations, including
