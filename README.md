@@ -1,3 +1,49 @@
+# ZONEBREAK 1.2.9 — full roster basic-attack rework
+
+All 150 non-tank fighters now have individual basic attack configurations, including
+the 132 older fighters in those classes. Together with the previous tank update,
+all 175 fighters now have their own basic attack forms. Supers, gadgets, passive
+choices, ownership and progression are retained. New attack descriptions appear
+in fighter selection and the included FIGHTERS.md guide.
+
+- Damage dealers: fans, beams, timed volleys, parallel rails, split crystals, returning wheels and short impact splashes.
+- Healers: seeds, healing halos, piercing threads, notes, curving petals and healing lobs.
+- Artillery: circular, ring, cross and strip blasts; rows, lines, square corners, chevrons, spirals and staggered landings. All remain finite-range throws over walls.
+- Assassins: close-range cuts, curved scissors, returning sickles, rear strikes, claw lanes and radial blades.
+- Marksmen: precision slugs, beam windups, parallel needles, bank shots, returning arrows and small impact splashes. Longest class range retained.
+- Controllers: slowing impact patches, rope lanes, lobbed gates, piercing ribbons, trap grids and ricocheting signs.
+
+White guides use the same lane, trajectory and blast-shape helpers as combat.
+Delayed beams and slashes show a warning before resolving. Burst follow-up shots
+retain their original firing direction and are canceled if the shooter is defeated.
+All fighters keep their class silhouettes with weapon-head details matching their
+new projectile shapes. Grey remains the free starting color.
+
+Training now has two ponds on every rotation, a clear central route, walking
+space around each pond and the existing left-side medic. Water blocks ordinary
+fighters, permits existing swimmers and does not block shots or lobs. Other maps
+are unchanged. Existing profiles retain coins, purchases, levels and trophies.
+
+Render settings remain unchanged:
+- Build: npm ci --omit=dev
+- Start: npm start
+- Health check path: /health
+- Node 24
+
+Upload the contents of ZONEBREAK, preserving vendor/ and test/. PLAY.html is a
+standalone practice build; use the server for online play.
+
+Current focused verification:
+`node --test test/arsenal.test.cjs test/peculiar.test.cjs test/artillery-friends.test.cjs test/hyper-purchase.test.cjs test/hypercharge.test.cjs test/lootbox-cosmetics.test.cjs test/aim-controls.test.cjs test/aim-network.test.cjs test/deploy.test.cjs`
+
+Checks exercise shared combat simulation, real WebSocket clients, and the client
+with a DOM/input fixture. Native canvas rendering checks cover every portrait
+and every non-tank attack. Live browser multiplayer balance testing remains
+useful. The historical tests and release notes below may retain old counts or
+balance expectations and are not the current acceptance suite.
+
+## Previous release notes
+
 # ZONEBREAK 1.2.8 — peculiar fighters and tank variety
 
 Adds 21 fighters, three in every class, bringing the roster to 175 (25 per class).
