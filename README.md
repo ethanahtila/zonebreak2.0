@@ -1,3 +1,61 @@
+# ZONEBREAK 1.5.0 — Zonebreak mode
+
+Zonebreak is a 3v3 capture-and-defend mode with three predictable terrain switches.
+It unlocks at 750 trophy-road trophies, and joins ranked’s team-mode rotation.
+Solo practice uses bots. Friends and online matchmaking use the same authoritative
+rules. All 2,000 existing fighters, saved progress and grey defaults are retained.
+
+## Relay and Break controls
+
+- Capture the central relay by standing uncontested inside it for three seconds.
+- Ownership persists after leaving. Every three uncontested seconds pays five
+  points. An enemy inside pauses income; both teams inside freeze capture.
+- First to 150 points wins. At three minutes, the higher score wins; ties draw.
+- Earn six personal Break energy per second of uncontested relay occupancy,
+  plus one per 100 actual damage to enemy fighters. Companion damage grants 35%
+  of this energy. Recent combat healing of another ally grants 0.6 per 100 HP.
+- Energy caps at 100 and survives respawns. Each console activation costs 75.
+- Hold **B** near an idle console for one stationary second. Releasing, moving,
+  attacking, repairing, using a gadget/super or taking damage cancels the channel.
+  Architects channel in 0.65 seconds and reach 120 units instead of 90.
+- Hold **V** to preview terrain. Both teams always see warnings and countdowns.
+
+## Three terrain changes
+
+| Console | Change |
+| --- | --- |
+| A — Breach | Lowers the reinforced walls beside the relay, opening lateral approaches. |
+| B — Switchyard | Turns two horizontal cover walls into vertical cover, changing firing lanes. |
+| C — Canal | Raises two bridges over water, opening flanking routes. |
+
+Each activation warns for two seconds, lasts 20 seconds, then warns for two seconds
+before restoring. Walls wait for fighters, companions, turrets and parked mechs to
+clear. A blocked activation waits up to three extra seconds, then cancels and
+refunds its cost. Restoration keeps waiting while occupied; it never crushes or
+teleports players. Bridges stay raised until non-swimmers clear exposed water;
+Architect bridges can preserve a safe crossing. Reinforced machinery cannot be
+broken by ordinary wall-destroying attacks. Architects cannot build onto machinery
+tracks or consoles. All three maps are rotationally symmetric and all eight terrain
+combinations preserve routes between spawns, consoles and the relay.
+
+The three maps are Foundry Relay, Canal Junction and Switchyard Core, using the
+existing staggered daily map rotation. Bots contest the relay and use charged
+consoles. Movement does not change attacks. Balance numbers are initial defaults.
+
+## Run and deploy
+
+Keep the existing Node 24 Render service settings:
+Build `npm ci --omit=dev`; Start `npm start`; Health Check Path `/health`.
+Upload **all contents** of the enclosed ZONEBREAK folder, preserving test/ and
+vendor/. No npm dependencies or external graphics are added. `node build.cjs`
+regenerates standalone PLAY.html; `npm test` runs regression and new-mode checks.
+
+Verification includes core simulations, all terrain combinations, a real-client
+DOM/input fixture, native Canvas rendering, and real local WebSocket clients.
+This does not replace human multiplayer browser balance/playtesting.
+
+---
+
 # ZONEBREAK 1.4.1 — Summoner class
 
 Adds 200 Summoners, bringing the roster to 2,000 fighters across ten classes.

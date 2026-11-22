@@ -50,3 +50,7 @@ body.playing #arena{cursor:none}
 .companion-controls{position:fixed;bottom:174px;left:26px;padding:10px 14px;background:#102b38e8;border:1px solid #8ba9b4;border-radius:12px;color:#ecf5f6;z-index:6;pointer-events:auto}.companion-controls strong{font-size:11px;display:block;margin-bottom:7px}.companion-controls div{display:flex;gap:7px}.companion-controls button{padding:7px 10px;border:1px solid #78919a;background:#203f4b;color:#eef6f8;border-radius:7px;font-size:11px}.companion-controls button.active{border-color:#e6faf1;background:#395d60}.companion-controls button:disabled{opacity:.5}.companion-controls kbd{font-weight:bold;margin-right:4px}
 
 .class-cards{grid-template-columns:repeat(5,minmax(0,1fr))}@media(max-width:1100px){.class-cards{grid-template-columns:repeat(3,minmax(0,1fr))}}
+
+#breakControls{max-width:400px;padding:9px 13px;border:1px solid #74d8c6;border-radius:9px;background:#142b35e8;color:#e7fffa;font-size:11px;pointer-events:none}#breakControls[hidden]{display:none}#breakControls strong{display:block;margin-bottom:4px;color:#b5ffe9}
+
+#breakControls{position:absolute;left:50%;top:94px;transform:translateX(-50%);text-align:center}
