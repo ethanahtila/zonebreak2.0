@@ -42,3 +42,5 @@ body.playing #arena{cursor:none}
 .hyper-upgrade{margin-top:20px;padding:16px;border:1px solid #c77dff55;border-radius:10px}.hyper-upgrade p{font-size:11px;color:#c5b7d7;line-height:1.6}
 
 .roster-tools{display:flex;gap:12px;margin-top:22px}.roster-tools label:first-child{flex:1}.roster-tools label{display:grid;gap:5px;font-size:11px;font-weight:700;letter-spacing:.06em}.roster-tools input,.roster-tools select{width:100%;min-width:0;padding:10px;border:1px solid #67818b;border-radius:8px;background:#18323e;color:#edf4f6}.roster-pages{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:12px}.roster-pages span{font-size:11px;color:#c0cfd3}.roster .fighter-card strong{overflow-wrap:anywhere}.roster .fighter-card small{line-height:1.4}.roster-tools label:first-child input{min-width:140px}
+
+.roster-tools{flex-wrap:wrap}.roster-tools label{min-width:140px}.roster-tools label:first-child{min-width:180px}.roster-tools label:not(:first-child){flex:0 1 auto}

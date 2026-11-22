@@ -1,6 +1,6 @@
 {
   "name": "zonebreak",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "private": true,
   "description": "A compact original top-down team arena game.",
   "engines": {
@@ -8,6 +8,6 @@
   },
   "scripts": {
     "start": "node server.cjs",
-    "test": "node --test test/grand-roster.test.cjs test/arsenal.test.cjs test/peculiar.test.cjs test/artillery-friends.test.cjs test/hyper-purchase.test.cjs test/hypercharge.test.cjs test/lootbox-cosmetics.test.cjs test/aim-controls.test.cjs test/aim-network.test.cjs test/deploy.test.cjs"
+    "test": "node --test test/roster-sort.test.cjs test/grand-roster.test.cjs test/arsenal.test.cjs test/peculiar.test.cjs test/artillery-friends.test.cjs test/hyper-purchase.test.cjs test/hypercharge.test.cjs test/lootbox-cosmetics.test.cjs test/aim-controls.test.cjs test/aim-network.test.cjs test/deploy.test.cjs"
   }
 }

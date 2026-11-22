@@ -1,3 +1,24 @@
+# ZONEBREAK 1.3.1 — roster sorting
+
+The roster now defaults to rarity, from Common to Ultra. SORT BY also offers
+Power level and Trophies, both highest first. Power uses the level you own for
+each fighter, and trophies uses that fighter’s own trophy count. In those two
+sorts, unlocked fighters appear first; ties and locked fighters follow rarity
+order. Fighters tied within the same rarity retain stable catalogue order.
+
+The sort preference is saved in the existing profile and applies across classes.
+Search and rarity filters continue to work, sorting happens before pagination,
+and changing sort resets to page one. Upgrading a fighter or returning from a
+match refreshes its position. Existing progress and all 1,400 kits remain intact.
+
+Render settings are unchanged: Node 24; Build `npm ci --omit=dev`; Start
+`npm start`; Health Check Path `/health`. Upload all contents of ZONEBREAK
+together, preserving vendor/ and test/. PLAY.html is included for practice.
+Run the current acceptance suite with `npm test`. It includes sorting, saved
+preferences, pagination, upgrades, combat, and real WebSocket checks.
+
+## Earlier release notes
+
 # ZONEBREAK 1.3.0 — 1,400 fighters
 
 Seven classes, 200 fighters each. Original IDs and saved progression are preserved.
