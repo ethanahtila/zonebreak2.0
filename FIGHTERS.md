@@ -1,140 +1,341 @@
-# ZONEBREAK fighter guide — 1.0.5
+# ZONEBREAK fighter guide — 1.2.8
 
-70 fighters, ten per class. Stat values below are level-20 maxima; level 1 begins at 65% health/damage/healing. Rarity controls credit cost and mastery complexity rather than a blanket stat boost. Coins buy levels and individual gadget/passive choices separately. Gadget eligibility: 5 / 10 / 15 / 18; passives: 8 / 12 / 16 / 20. Jolt is the starter.
+175 fighters, 25 per class. Stats are level-20 base values before equipped bonuses. Grey is the free starting color. Kits and attack descriptions are shown in-game.
 
 ## Tanks
 
-| Fighter / rarity / credits | Max HP / damage / range | Playstyle | Super |
-| --- | --- | --- | --- |
-| Rook / common / 100 | 7750 / 1660 / 100 | A walking fortress. Devastating at arm’s length, but needs cover to close the gap. | **Faultline** — Charge forward, slam nearby enemies, and gain a brief shield. Breaks walls on impact. **Breaks walls.** |
-| Bulwark / common / 100 | 8450 / 1880 / 90 | The slowest, toughest tank. A broad hammer sweep and a protective team shockwave. | **Stand Together** — Deal 1,250 damage in a wide shockwave and shield nearby allies for 3 seconds. |
-| Bramble / rare / 250 | 7350 / 1430 / 110 | A control tank whose thorn strikes slow enemies. Vines deny a patch of ground. | **Entangle** — Grow a 5-second thorn field at your feet, slowing enemies and dealing 300 damage per second. |
-| Kiln / rare / 250 | 7150 / 1770 / 105 | A furnace in armor. Narrow, forceful punches give way to a short-range flame burst. | **Open Furnace** — Fire six piercing flames in a short cone for up to 2,400 damage. Breaks walls on impact. **Breaks walls.** |
-| Anchor / epic / 500 | 7950 / 1690 / 95 | A wide-swinging brawler. A short grappling line pulls an opponent into striking distance. | **Reel In** — Launch a wall-blocked hook up to 290 units, dealing 1,500 damage and pulling the target toward you. |
-| Rampart / epic / 500 | 7650 / 1620 / 100 | A breaching tank. Line up the charge to open a firing lane for your team. | **Breach Rush** — Charge into cover, smash nearby walls, slam enemies and briefly shield yourself. **Breaks walls.** |
-| Golem / mythic / 900 | 8200 / 1830 / 90 | A slow defensive anchor. Fight in the stonewell rather than chasing distant targets. | **Stonewell** — Establish a six-second slowing damage field that protects allies standing inside. |
-| Atlas / mythic / 900 | 7500 / 1510 / 110 | A displacement brawler. Pull opponents into a close fight, then deny their escape route. | **Graviton** — Slam a wide area, then pull nearby opponents inward through a three-second gravity field. |
-| Vanguard / legendary / 1500 | 7300 / 1580 / 105 | A precise entry tank. The returning blades reward stepping around your opponent after entry. | **Twin Front** — Dash into position and release three returning blades while briefly protected. |
-| Titan / legendary / 1500 | 8050 / 1810 / 95 | A deliberate demolition tank. Predict where enemies will move after the first impact. | **Aftershock** — Break walls around the aimed impact, slam once, then trigger a delayed slowing aftershock. **Breaks walls.** |
-
-Class gadget families: **Level 5: Iron Skin** — Take 40% less damage for 3 seconds. (17s cooldown); **Level 10: Second Wind** — Instantly restore 22% of maximum health. (22s cooldown); **Level 15: Fortress March** — Move 35% faster for 2.5 seconds. (20s cooldown); **Level 18: Seismic Guard** — Deal 600 damage around you and gain a shield for 1.8 seconds. (24s cooldown).
-
-Class passives: **Level 8: Last Stand** — Take 15% less damage while below 35% health.; **Level 12: Heavy Hands** — Basic hits briefly slow the target.; **Level 16: Momentum** — Move 8% faster while above 70% health.; **Level 20: Recovery Plating** — Natural regeneration restores 10% of maximum health per second instead of 8%..
+| Fighter | Rarity | HP | Damage | Range | Basic attack | Super |
+| --- | --- | ---: | ---: | ---: | --- | --- |
+| Rook | common | 7750 | 1660 | 135 | Left Right | Faultline |
+| Bulwark | common | 8450 | 1805 | 125 | Shield Shove | Stand Together |
+| Bramble | rare | 7350 | 1130 | 170 | Thorn Halo | Entangle |
+| Kiln | rare | 7150 | 1416 | 175 | Furnace Breath | Open Furnace |
+| Anchor | epic | 7950 | 1217 | 290 | Dock Hook | Reel In |
+| Rampart | epic | 7650 | 1426 | 195 | Battering Step | Breach Rush |
+| Golem | mythic | 8200 | 1519 | 165 | Seismic Circle | Stonewell |
+| Atlas | mythic | 7500 | 1102 | 260 | Skipping Boulder | Graviton |
+| Vanguard | legendary | 7300 | 916 | 240 | Guard Disc | Twin Front |
+| Titan | legendary | 8050 | 1629 | 210 | Fault Tiles | Aftershock |
+| Nydrasel | common | 7072 | 1312 | 165 | Twin Fans | Royal Rampage |
+| Yorzel | common | 8044 | 1642 | 175 | X Marks It | Velvet Avalanche |
+| Tamqua | rare | 6708 | 1067 | 195 | Shock Collar | Storm Bulldozer |
+| Tuyor | rare | 6751 | 1369 | 215 | Heavy Scatter | Solar Earthquake |
+| Quaharlum | epic | 7232 | 1231 | 270 | Iron Lance | Solar Juggernaut |
+| Polulbri | epic | 8246 | 1099 | 300 | Banking Barrel | Solar Landslide |
+| Zenvi | mythic | 9012 | 1524 | 155 | Double Clap | Velvet Rampage |
+| Videxjo | mythic | 7559 | 1402 | 180 | Backhander | Frost Avalanche |
+| Gallum | legendary | 7869 | 1120 | 245 | Orbit Breaker | Royal Bulldozer |
+| Sorzeltu | legendary | 8297 | 1625 | 205 | Pressure Stamp | Ember Earthquake |
+| Shaviul | legendary | 7102 | 1551 | 205 | Crescent Sequence | Royal Juggernaut |
+| Tamnysor | ultra | 8919 | 1744 | 225 | Sovereign Nova | Void Landslide |
+| Keg | epic | 7900 | 1306 | 255 | Cask Cannon | Last Orders |
+| Torto | rare | 8550 | 1413 | 205 | Shell Reversal | Moving Fortress |
+| Gravitas | legendary | 7550 | 1387 | 215 | Gravity Bell | Collapsed Orbit |
 
 ## Damage dealers
 
-| Fighter / rarity / credits | Max HP / damage / range | Playstyle | Super |
-| --- | --- | --- | --- |
-| Jolt / common / 100 | 4500 / 1680 / 475 | A mid-range burst specialist. Consistent pressure, high damage, and a precise piercing super. | **Rail Surge** — Fire a powerful piercing energy shot. Walls still block it. |
-| Nova / common / 100 | 4200 / 1792 / 450 | A nimble twin-pistol duelist. A radial super punishes opponents closing in from multiple sides. | **Starburst** — Fire eight piercing rays in all directions, each dealing 828 damage. |
-| Flint / rare / 250 | 5100 / 2176 / 405 | A close-mid range scattergun specialist. Landing the full spread delivers heavy pressure. | **Breach Volley** — Fire three tightly grouped piercing slugs, each dealing about 978 damage. Breaks walls on impact. **Breaks walls.** |
-| Echo / rare / 250 | 4400 / 1552 / 490 | A precise line attacker whose basic shot pierces fighters. The super hits on the way out and back. | **Return Signal** — Launch a piercing wave that returns to its launch point, dealing about 1,438 damage on each pass. |
-| Prism / epic / 500 | 4300 / 1904 / 465 | A deliberate crystal-cannon fighter. Broad slowing super shards control an entire approach. | **Refraction** — Fire five piercing shards in a cone, each dealing 805 damage and slowing enemies. |
-| Blaze / epic / 500 | 4400 / 1792 / 450 | A sustained-fire specialist who uses the burning area to force targets into the bolt fan. | **Crossfire** — Sweep five piercing bolts through a lane and leave a brief burning landing area. |
-| Burst / mythic / 900 | 4800 / 1936 / 430 | A lane opener. Break one defensive corner, then pressure the route your shell exposes. | **Demolition Line** — Fire a heavy breaching shell that breaks cover on impact and damages fighters in its path. **Breaks walls.** |
-| Rivet / mythic / 900 | 4600 / 1696 / 465 | A positional gunner. Set up protection before committing to the full rivet spread. | **Rivet Storm** — Fire seven rivets while establishing a temporary protective firing position. |
-| Cascade / legendary / 1500 | 4250 / 1616 / 485 | A return-shot specialist. Angles and follow-up positioning matter more than firing blindly. | **Echo Barrage** — Launch four returning pulses. Each can hit again as it travels back toward the launch point. |
-| Vector / legendary / 1500 | 4350 / 1712 / 490 | A technical angle fighter. Funnel opponents between the two fields to land the volley. | **Focus Array** — Fire a focused volley between two slowing damage zones placed across the aimed lane. |
-
-Class gadget families: **Level 5: Speedloader** — Instantly refill all three ammo cells. (18s cooldown); **Level 10: Power Cell** — The next basic attack within 5 seconds deals 45% more damage. (19s cooldown); **Level 15: Combat Footwork** — Dash 130 units toward your aim. Walls block the dash. (17s cooldown); **Level 18: Combat Rhythm** — Reload 1.2 ammo cells and move 35% faster for 2 seconds. (24s cooldown).
-
-Class passives: **Level 8: Deadeye** — Deal 12% more basic damage beyond half your range.; **Level 12: Rapid Cycle** — Reload ammo 15% faster.; **Level 16: Overcharge** — Gain 20% more super charge from dealing damage.; **Level 20: Opening Shot** — A basic attack fired with all three ammo cells deals 10% more damage..
+| Fighter | Rarity | HP | Damage | Range | Basic attack | Super |
+| --- | --- | ---: | ---: | ---: | --- | --- |
+| Jolt | common | 4500 | 1680 | 475 | Tri-Burst | Rail Surge |
+| Nova | common | 4200 | 1792 | 450 | Twin Sparks | Starburst |
+| Flint | rare | 5100 | 2176 | 405 | Scattershot | Breach Volley |
+| Echo | rare | 4400 | 1552 | 490 | Sound Lance | Return Signal |
+| Prism | epic | 4300 | 1904 | 465 | Crystal Bolt | Refraction |
+| Blaze | epic | 4400 | 1792 | 450 | Blaze Strike | Crossfire |
+| Burst | mythic | 4800 | 1936 | 430 | Burst Strike | Demolition Line |
+| Rivet | mythic | 4600 | 1696 | 465 | Rivet Strike | Rivet Storm |
+| Cascade | legendary | 4250 | 1616 | 485 | Cascade Strike | Echo Barrage |
+| Vector | legendary | 4350 | 1712 | 490 | Vector Strike | Focus Array |
+| Nylovi | common | 4620 | 1625 | 469 | Burst | Velvet Barrage |
+| Ulcyvi | common | 4429 | 1820 | 424 | Burst | Wild Volley |
+| Iblum | rare | 5477 | 2049 | 386 | Burst | Arc Firestorm |
+| Polzel | rare | 4481 | 1599 | 494 | Burst | Velvet Salvo |
+| Sorkavi | epic | 3934 | 1746 | 483 | Burst | Iron Onslaught |
+| Polgal | epic | 4473 | 1929 | 436 | Burst | Grim Blitz |
+| Misel | mythic | 4598 | 1938 | 442 | Burst | Neon Barrage |
+| Ibwyn | mythic | 4295 | 1646 | 492 | Burst | Velvet Volley |
+| Mieno | legendary | 3878 | 1651 | 466 | Burst | Wild Firestorm |
+| Quami | legendary | 4341 | 1786 | 465 | Burst | Frost Salvo |
+| Ozenobri | legendary | 4731 | 1570 | 467 | Burst | Wild Onslaught |
+| Rupra | ultra | 4986 | 2137 | 446 | Ultra Burst | Void Blitz |
+| Mobius | mythic | 4650 | 1580 | 470 | Infinity Ribbon | Knot Again |
+| Poprock | epic | 4500 | 1490 | 445 | Jawbreaker | Rock Candy |
+| Ticktock | rare | 4800 | 1620 | 465 | Clockwork Braid | Borrowed Seconds |
 
 ## Healers
 
-| Fighter / rarity / credits | Max HP / damage / range | Playstyle | Super |
-| --- | --- | --- | --- |
-| Sprig / common / 100 | 4900 / 700 / 435 | Support bolts hurt enemies and heal wounded allies. Can also sustain herself in a duel. | **Sanctuary** — Place a healing field for 6 seconds at the aimed location. |
-| Pulse / common / 100 | 5400 / 790 / 365 | A sturdy combat medic. A healing shockwave rewards staying near teammates without losing damage potential. | **Heartwave** — Heal nearby allies for 1,600 and deal 1,150 damage to nearby enemies. |
-| Brook / rare / 250 | 4400 / 620 / 485 | A long-reach support who sends water through multiple fighters. Position allies and enemies in one line. | **Lifeline** — Fire a piercing wave that heals each ally for 1,800 or damages each enemy for 1,300. |
-| Lumen / rare / 250 | 4700 / 680 / 415 | A protective light-weaver. Twin support bolts lead into an area that protects and sustains the whole team. | **Halo** — Create a 4-second field that shields allies inside and heals 250 health per second. |
-| Mender / epic / 500 | 5000 / 740 / 400 | A mobile rescue specialist. Leave healing behind you while dashing toward a teammate in trouble. | **Rescue Route** — Dash toward your aim, leave a 5-second healing field behind and heal allies near your landing for 1,000. |
-| Fern / epic / 500 | 4850 / 710 / 430 | A territorial support. Position the sanctuary so teammates can hold a corner together. | **Seed Sanctuary** — Plant a long-lived field that heals allies and damages enemies who contest it. |
-| Aegis / mythic / 900 | 5300 / 760 / 395 | A defensive medic. Time the team shield just before an opponent commits their burst. | **Rescue Bulwark** — Heal and shield nearby teammates, then sustain a smaller protected recovery area. |
-| Chorus / mythic / 900 | 4500 / 640 / 470 | A line-support expert. Arrange teammates between you and the enemy to use both passes. | **Resonant Chorus** — Send five returning support waves that heal allies and hurt enemies on both passes. |
-| Solace / legendary / 1500 | 4700 / 730 / 415 | A rescue specialist. Choose whether the old position or landing point needs more support. | **Safe Passage** — Leave a healing zone behind, dash toward your aim and rescue allies near your landing. |
-| Link / legendary / 1500 | 4900 / 680 / 455 | A technical support who keeps two positions alive instead of stacking the whole team. | **Life Circuit** — Connect two recovery positions with separate healing fields and a brief shield at the destination. |
-
-Class gadget families: **Level 5: Field Dressing** — Instantly heal yourself for 1,400 health. (18s cooldown); **Level 10: Rescue Pulse** — Heal the most wounded nearby ally for 1,800; heal yourself if alone. (20s cooldown); **Level 15: Protective Pulse** — Shield nearby allies for 1.8 seconds. (23s cooldown); **Level 18: Restoration** — Restore 1,000 health to yourself and allies within 200 units. (24s cooldown).
-
-Class passives: **Level 8: Kindred** — Healing an ally returns 25% of that healing to you.; **Level 12: Early Bloom** — Natural regeneration starts 1 second sooner.; **Level 16: Deep Roots** — Heal allies below half health for 12% more.; **Level 20: Care Package** — Your healing is 10% stronger while you are above 70% health..
+| Fighter | Rarity | HP | Damage | Range | Basic attack | Super |
+| --- | --- | ---: | ---: | ---: | --- | --- |
+| Sprig | common | 4900 | 700 | 435 | Life Bolt | Sanctuary |
+| Pulse | common | 5400 | 790 | 365 | Vital Pulse | Heartwave |
+| Brook | rare | 4400 | 620 | 485 | Water Thread | Lifeline |
+| Lumen | rare | 4700 | 680 | 415 | Twin Glimmers | Halo |
+| Mender | epic | 5000 | 740 | 400 | Stitch Fan | Rescue Route |
+| Fern | epic | 4850 | 710 | 430 | Fern Strike | Seed Sanctuary |
+| Aegis | mythic | 5300 | 760 | 395 | Aegis Strike | Rescue Bulwark |
+| Chorus | mythic | 4500 | 640 | 470 | Chorus Strike | Resonant Chorus |
+| Solace | legendary | 4700 | 730 | 415 | Solace Strike | Safe Passage |
+| Link | legendary | 4900 | 680 | 455 | Link Strike | Life Circuit |
+| Rolum | common | 4734 | 668 | 447 | Mend Bolt | Storm Blessing |
+| Soroz | common | 5433 | 768 | 386 | Mend Bolt | Velvet Renewal |
+| Joibtam | rare | 4795 | 595 | 499 | Mend Bolt | Arc Sanctum |
+| Galjo | rare | 4694 | 703 | 393 | Mend Bolt | Grim Remedy |
+| Cymi | epic | 4989 | 812 | 379 | Mend Bolt | Frost Revival |
+| Tutam | epic | 5177 | 695 | 425 | Mend Bolt | Frost Haven |
+| Uleno | mythic | 4902 | 718 | 393 | Mend Bolt | Neon Blessing |
+| Dragal | mythic | 4359 | 631 | 488 | Mend Bolt | Iron Renewal |
+| Galkaoz | legendary | 4685 | 712 | 410 | Mend Bolt | Ember Sanctum |
+| Selgaldex | legendary | 4801 | 633 | 442 | Mend Bolt | Arc Remedy |
+| Britamtu | legendary | 5132 | 705 | 426 | Mend Bolt | Arc Revival |
+| Brivexvex | legendary | 5843 | 730 | 348 | Mend Bolt | Neon Haven |
+| Thimble | rare | 4700 | 720 | 445 | Running Stitch | Patchwork |
+| Kettle | epic | 5100 | 760 | 400 | Tea Time | Comfort Brew |
+| Parasol | legendary | 4550 | 690 | 460 | Umbrella Weather | Shelter From Above |
 
 ## Artillery
 
-| Fighter / rarity / credits | Max HP / damage / range | Playstyle | Super |
-| --- | --- | --- | --- |
-| Fuse / common / 100 | 3900 / 1320 / 570 | Lob explosive charges over cover. Aim ahead: bombs have travel time and a visible danger circle. | **Fireworks** — Launch five bombs around the aimed point, passing over walls. Breaks walls on impact. **Breaks walls.** |
-| Tumble / common / 100 | 4200 / 1460 / 510 | A twin-grenade lobber. Two smaller blasts cover a wider landing area than a single bomb. | **Carpet Run** — Throw a line of three bombs across the aimed location, each dealing 1,150 damage. |
-| Cinder / rare / 250 | 3700 / 1410 / 550 | A slow-fuse incendiary expert. Burning ground forces opponents to keep moving. | **Wildfire** — Lob an incendiary bomb that leaves an 8-second fire field dealing 400 damage per second. |
-| Drizzle / rare / 250 | 3600 / 880 / 525 | A quick-firing mortar scout. Smaller, faster bombs pressure mobile targets and rain across an area. | **Cloudburst** — Rain eight small bombs around your aim, each dealing 540 damage. |
-| Orbit / epic / 500 | 4100 / 1670 / 600 | A long-range demolition specialist. Huge but slow explosives demand careful prediction. | **Impact Event** — Lob a slow, very large bomb dealing 2,500 damage and pushing opponents away from its center. Breaks walls on impact. **Breaks walls.** |
-| Pebble / epic / 500 | 4100 / 1320 / 535 | A demolition lobber. Spread the grid over a defensive pocket to open several approaches. | **Shatter Grid** — Lob a four-bomb grid that damages fighters and breaks walls around each landing. **Breaks walls.** |
-| Scoria / mythic / 900 | 3800 / 1420 / 560 | A demolition hazard specialist. Use the crater to keep the newly opened lane dangerous. | **Caldera** — Break the aimed cover with a heavy shell and leave a long-lived slowing fire pit. **Breaks walls.** |
-| Tempest / mythic / 900 | 3650 / 980 / 545 | A timing-based mortar fighter. Lead running targets into the next explosion in the sequence. | **Rolling Thunder** — Sweep six staggered explosions across the aimed position. |
-| Mortar / legendary / 1500 | 4200 / 1510 / 590 | A siege engineer. Protect your battery while its delayed shots pressure hiding opponents. | **Siege Battery** — Deploy a destructible mortar battery that lobs telegraphed bombs over cover for twelve seconds. |
-| Comet / legendary / 1500 | 3900 / 1430 / 620 | A prediction-heavy artillery expert. The second impact punishes opponents who return too soon. | **Orbital Breach** — Call two delayed impacts onto one position, breaking walls with both blasts. **Breaks walls.** |
-
-Class gadget families: **Level 5: Blast Step** — Hop backward and knock nearby opponents away. (16s cooldown); **Level 10: Quick Fuse** — Detonate your currently airborne bombs at their present positions. (15s cooldown); **Level 15: Emergency Cache** — Instantly reload 1.5 ammo cells. (18s cooldown); **Level 18: Target Saturation** — Reload one ammo cell and empower your next basic attack within 5 seconds by 30%. (23s cooldown).
-
-Class passives: **Level 8: Wide Radius** — Your explosions have a 12% wider radius.; **Level 12: Scorched Earth** — Basic explosions leave a small damaging field for 2 seconds.; **Level 16: Light Load** — Move 10% faster with at least two ammo cells.; **Level 20: Blast Specialist** — Basic bomb attacks deal 8% more damage..
+| Fighter | Rarity | HP | Damage | Range | Basic attack | Super |
+| --- | --- | ---: | ---: | ---: | --- | --- |
+| Fuse | common | 3900 | 1162 | 422 | Arc Charge | Fireworks |
+| Tumble | common | 4200 | 1285 | 377 | Double Bounce | Carpet Run |
+| Cinder | rare | 3700 | 1241 | 407 | Ember Pot | Wildfire |
+| Drizzle | rare | 3600 | 774 | 389 | Cloud Pop | Cloudburst |
+| Orbit | epic | 4100 | 1470 | 444 | Moonshot | Impact Event |
+| Pebble | epic | 4100 | 1162 | 396 | Pebble Strike | Shatter Grid |
+| Scoria | mythic | 3800 | 1250 | 414 | Scoria Strike | Caldera |
+| Tempest | mythic | 3650 | 862 | 403 | Tempest Strike | Rolling Thunder |
+| Mortar | legendary | 4200 | 1329 | 437 | Mortar Strike | Siege Battery |
+| Comet | legendary | 3900 | 1258 | 459 | Comet Strike | Orbital Breach |
+| Kipyor | common | 3704 | 1188 | 397 | Lob | Frost Bombardment |
+| Mitam | common | 4576 | 1210 | 360 | Lob | Void Meteor Rain |
+| Praro | rare | 3619 | 1296 | 430 | Lob | Grim Carpet Blast |
+| Drayor | rare | 3826 | 752 | 389 | Lob | Storm Mortar Storm |
+| Harkip | epic | 4399 | 1467 | 451 | Lob | Royal Cluster Drop |
+| Lumlo | epic | 4254 | 1094 | 377 | Lob | Royal Shellfall |
+| Enopol | mythic | 3564 | 1127 | 428 | Lob | Void Bombardment |
+| Selkasha | mythic | 3637 | 913 | 389 | Lob | Frost Meteor Rain |
+| Lotu | legendary | 4551 | 1274 | 417 | Lob | Wild Carpet Blast |
+| Zenlojo | legendary | 3698 | 1334 | 453 | Lob | Frost Mortar Storm |
+| Ibbri | legendary | 4045 | 1241 | 414 | Lob | Solar Cluster Drop |
+| Shafel | legendary | 3898 | 1283 | 388 | Lob | Neon Shellfall |
+| Doodle | rare | 4050 | 1130 | 395 | Dotted Triangle | Margin Notes |
+| Belljar | mythic | 3900 | 1190 | 420 | Spill Zone | Open The Cabinet |
+| Popcorn | legendary | 3850 | 1010 | 410 | Kernel Panic | Family Bucket |
 
 ## Assassins
 
-| Fighter / rarity / credits | Max HP / damage / range | Playstyle | Super |
-| --- | --- | --- | --- |
-| Wisp / common / 100 | 3500 / 1470 / 195 | Fast, fragile, and dangerous up close. Use flanking paths, concealment, and a wall-respecting dash. | **Slipstrike** — Dash toward the cursor and slash around your landing point. |
-| Nyx / common / 100 | 3200 / 1570 / 175 | A very fragile ambusher. Concealment, movement speed and an empowered first strike create an opening. | **Nightfall** — Cloak for 3 seconds, gain 35% movement speed for 2.5 seconds and empower your next attack by 30%. |
-| Talon / rare / 250 | 3700 / 1320 / 205 | A spread-blade skirmisher. A dash followed by a radial flurry creates space on entry. | **Razor Dive** — Dash forward and launch six piercing blades around your landing point, each dealing 650 damage. |
-| Volt / rare / 250 | 3400 / 1450 / 215 | A fast needle-strike assassin. A long dash leaves an electrified slowing patch at the destination. | **Stormstep** — Dash toward your aim, deal 900 area damage and leave a 2.5-second slowing storm. |
-| Shade / epic / 500 | 3600 / 1530 / 185 | A heavy crescent duelist. Slower, broad basic shots pair with life-draining super blades. | **Soul Rend** — Fire two piercing blades. Each deals 1,000 damage and restores up to 550 health when it hits an enemy. |
-| Fang / epic / 500 | 3450 / 1550 / 180 | An entry assassin. Aim the dash endpoint so the blade fan catches an escape path. | **Claw Feint** — Dash toward your aim and sweep four close-range piercing blades from the new position. |
-| Mirage / mythic / 900 | 3300 / 1440 / 195 | A misdirection assassin. Lure a pursuer into your old position while changing angles. | **Mirror Trail** — Leave a slowing decoy field behind your dash and briefly conceal your landing. |
-| Reaper / mythic / 900 | 3700 / 1630 / 200 | A risky sustain assassin. Recover health by lining up the blades before chasing farther. | **Marked Sweep** — Sweep three life-draining blades and gain a brief movement burst. |
-| Blink / legendary / 1500 | 3250 / 1470 / 190 | A fragile precision diver. The landing location decides whether the radial burst connects. | **Phase Assault** — Dash into a new angle and release a ring of piercing blades. Walls still block the dash. |
-| Specter / legendary / 1500 | 3500 / 1510 / 210 | A setup assassin. Place the net across an exit, then approach from a different direction. | **Shadow Net** — Set a slowing damage trap at your aim, advance toward it and cloak briefly. |
-
-Class gadget families: **Level 5: Vanish** — Cloak for 1.8 seconds. Attacking reveals you; close enemies can still see you. (20s cooldown); **Level 10: Ambush** — The next attack within 5 seconds deals 30% more damage. (18s cooldown); **Level 15: Second Escape** — Dash 140 units toward your aim. Walls block the dash. (18s cooldown); **Level 18: Smoke Dash** — Retreat 110 units away from your aim and cloak for 1.2 seconds. Attacking reveals you. (24s cooldown).
-
-Class passives: **Level 8: Execution** — Deal 12% more damage to enemies below 35% health.; **Level 12: Escape Artist** — A knockout instantly heals you for 850 health.; **Level 16: Shadow Pace** — Move 10% faster after 2 seconds without attacking.; **Level 20: First Strike** — Basic attacks made while cloaked deal 12% more damage..
+| Fighter | Rarity | HP | Damage | Range | Basic attack | Super |
+| --- | --- | ---: | ---: | ---: | --- | --- |
+| Wisp | common | 3500 | 1470 | 195 | Fan of Fangs | Slipstrike |
+| Nyx | common | 3200 | 1570 | 175 | Night Blades | Nightfall |
+| Talon | rare | 3700 | 1320 | 205 | Feather Fan | Razor Dive |
+| Volt | rare | 3400 | 1450 | 215 | Arc Needle | Stormstep |
+| Shade | epic | 3600 | 1530 | 185 | Dusk Crescent | Soul Rend |
+| Fang | epic | 3450 | 1550 | 180 | Fang Strike | Claw Feint |
+| Mirage | mythic | 3300 | 1440 | 195 | Mirage Strike | Mirror Trail |
+| Reaper | mythic | 3700 | 1630 | 200 | Reaper Strike | Marked Sweep |
+| Blink | legendary | 3250 | 1470 | 190 | Blink Strike | Phase Assault |
+| Specter | legendary | 3500 | 1510 | 210 | Specter Strike | Shadow Net |
+| Sordex | common | 3459 | 1569 | 197 | Slash | Iron Ambush |
+| Dradexib | common | 3068 | 1587 | 174 | Slash | Neon Shadow Strike |
+| Losel | rare | 3707 | 1345 | 210 | Slash | Wild Pounce |
+| Zengal | rare | 3456 | 1315 | 207 | Slash | Ember Eclipse Cut |
+| Torenosel | epic | 3905 | 1638 | 186 | Slash | Neon Vanish |
+| Quazen | epic | 3643 | 1490 | 176 | Slash | Arc Ripper |
+| Jolum | mythic | 3153 | 1301 | 198 | Slash | Velvet Ambush |
+| Enovi | mythic | 3992 | 1658 | 209 | Slash | Velvet Shadow Strike |
+| Nymi | legendary | 3229 | 1566 | 185 | Slash | Neon Pounce |
+| Tamshaoz | legendary | 3731 | 1592 | 204 | Slash | Neon Eclipse Cut |
+| Vexsel | legendary | 3723 | 1499 | 199 | Slash | Grim Vanish |
+| Shayor | legendary | 3477 | 1520 | 174 | Slash | Royal Ripper |
+| Skitter | rare | 3400 | 1490 | 210 | Sidewinders | Spider Walk |
+| Glitch | mythic | 3250 | 1540 | 195 | Packet Loss | Error Window |
+| Tripwire | legendary | 3550 | 1420 | 225 | Double Take | Cut The Deck |
 
 ## Marksmen
 
-| Fighter / rarity / credits | Max HP / damage / range | Playstyle | Super |
-| --- | --- | --- | --- |
-| Scope / common / 100 | 4700 / 1480 / 780 | A patient precision specialist. Very long reach and a narrow shot reward careful aim and open firing lanes. | **Dead Straight** — Fire a narrow piercing rail shot up to 950 units for 2,800 damage. Cover blocks it. |
-| Kestrel / common / 100 | 4900 / 1260 / 690 | A mobile twin-bolt ranger. A slightly shorter reach buys faster movement and a forgiving two-shot pattern. | **Crosswind** — Fire three long-range piercing bolts, each dealing 1,000 damage and briefly slowing enemies. |
-| Vega / rare / 250 | 4500 / 1050 / 720 | A rapid laser scout. Lower damage per shot and a faster firing cycle allow steady pressure from distant lanes. | **Constellation** — Send three closely spaced piercing beams down a lane, each dealing 1,050 damage with 880 units of reach. |
-| Quill / rare / 250 | 4600 / 1300 / 750 | A line-piercing sharpshooter. Basic arrows can hit multiple fighters; a pinning super slows targets for follow-up shots. | **Pinning Shot** — Loose one piercing arrow for 2,100 damage that slows enemies for 2.6 seconds. Range: 850 units. |
-| Sable / epic / 500 | 5100 / 1610 / 740 | A steady heavy-rifle specialist. Slower attacks hit harder, while a recoil super creates distance from pursuers. | **Recoil Shot** — Fire a 2,600-damage piercing shot up to 900 units, then retreat 135 units away from your aim. Walls block both. |
-| Horizon / epic / 500 | 4650 / 1380 / 780 | A return-shot marksman. Read the return path instead of firing only at the current target. | **Long Echo** — Launch a long returning precision wave that can hit on both passes. |
-| Osprey / mythic / 900 | 4850 / 1230 / 710 | A pursuit marksman. The slowing fan is strongest when it cuts across a retreat. | **Snare Fan** — Send three long-range slowing bolts through an escape lane. |
-| Needle / mythic / 900 | 4500 / 1420 / 765 | A precise lane specialist. Small projectiles demand clean aim even at long range. | **Thread Split** — Briefly brace yourself and fire two extremely narrow piercing shots. |
-| Parallax / legendary / 1500 | 4700 / 1350 / 770 | A setup marksman. Predict the lane your target will cross before releasing the volley. | **Triangulate** — Place a slowing target zone and fire three focused piercing bolts through it. |
-| Zenith / legendary / 1500 | 4950 / 1580 / 800 | A demanding heavy marksman. Plan an escape route and a firing lane at the same time. | **Zenith Lance** — Retreat away from your aim and launch a very long, narrow piercing lance. |
-
-Class gadget families: **Level 5: Speedloader** — Instantly refill all three ammo cells. (18s cooldown); **Level 10: Power Cell** — The next basic attack within 5 seconds deals 45% more damage. (19s cooldown); **Level 15: Sniper Step** — Dash 130 units toward your aim. Walls block the dash. (17s cooldown); **Level 18: Combat Rhythm** — Reload 1.2 ammo cells and move 35% faster for 2 seconds. (24s cooldown).
-
-Class passives: **Level 8: Deadeye** — Deal 12% more basic damage beyond half your range.; **Level 12: Rapid Cycle** — Reload ammo 15% faster.; **Level 16: Overcharge** — Gain 20% more super charge from dealing damage.; **Level 20: Opening Shot** — A basic attack fired with all three ammo cells deals 10% more damage..
+| Fighter | Rarity | HP | Damage | Range | Basic attack | Super |
+| --- | --- | ---: | ---: | ---: | --- | --- |
+| Scope | common | 4700 | 1480 | 780 | Longshot | Dead Straight |
+| Kestrel | common | 4900 | 1260 | 690 | Twin Talons | Crosswind |
+| Vega | rare | 4500 | 1050 | 720 | Starlance | Constellation |
+| Quill | rare | 4600 | 1300 | 750 | Needle Arrow | Pinning Shot |
+| Sable | epic | 5100 | 1610 | 740 | Heavy Caliber | Recoil Shot |
+| Horizon | epic | 4650 | 1380 | 780 | Horizon Strike | Long Echo |
+| Osprey | mythic | 4850 | 1230 | 710 | Osprey Strike | Snare Fan |
+| Needle | mythic | 4500 | 1420 | 765 | Needle Strike | Thread Split |
+| Parallax | legendary | 4700 | 1350 | 770 | Parallax Strike | Triangulate |
+| Zenith | legendary | 4950 | 1580 | 800 | Zenith Strike | Zenith Lance |
+| Kapra | common | 5046 | 1355 | 751 | Snipe | Wild Longshot |
+| Wyngal | common | 4674 | 1350 | 690 | Snipe | Wild Piercer |
+| Shapol | rare | 4281 | 975 | 733 | Snipe | Velvet Railbreaker |
+| Mioz | rare | 4629 | 1225 | 747 | Snipe | Void Deadbolt |
+| Rudex | epic | 4977 | 1661 | 698 | Snipe | Grim Skewer |
+| Micypol | epic | 4255 | 1292 | 747 | Snipe | Ember Headliner |
+| Cypol | mythic | 5247 | 1229 | 690 | Snipe | Royal Longshot |
+| Kamar | mythic | 4562 | 1471 | 739 | Snipe | Ember Piercer |
+| Ozlo | legendary | 4359 | 1308 | 759 | Snipe | Ember Railbreaker |
+| Marru | legendary | 4872 | 1580 | 846 | Snipe | Neon Deadbolt |
+| Tudra | legendary | 4420 | 1531 | 772 | Snipe | Void Skewer |
+| Tormi | legendary | 4706 | 1202 | 690 | Snipe | Solar Headliner |
+| Parable | epic | 4950 | 1310 | 770 | Bent Argument | Final Word |
+| Ricochet | mythic | 5050 | 1260 | 740 | Bank Shot | House Rules |
+| Pendulum | legendary | 4850 | 1160 | 755 | Second Hand | Grandfather Clock |
 
 ## Controllers
 
-| Fighter / rarity / credits | Max HP / damage / range | Playstyle | Super |
-| --- | --- | --- | --- |
-| Relay / common / 100 | 4900 / 880 / 440 | An area engineer. Place a turret on a useful angle and protect it from enemy fire. | **Relay Turret** — Deploy a destructible turret that fires at visible enemies for fifteen seconds. |
-| Bastion / common / 100 | 5100 / 1000 / 360 | A straightforward area defender. Guard a choke while opponents decide whether to cross. | **Hold the Line** — Place a sustained slowing damage field and briefly shield yourself. |
-| Glade / rare / 250 | 4750 / 800 / 460 | A slowing specialist. Modest damage becomes valuable when enemies cannot move freely. | **Overgrowth** — Cover a wide area in seven seconds of slowing, damaging growth. |
-| Patch / rare / 250 | 4800 / 930 / 375 | A return-fan controller. Work the outgoing and returning arcs to hold a wide approach. | **Crosspatch** — Throw a wide fan of returning projectiles that punish opponents staying in the lane. |
-| Cipher / epic / 500 | 4600 / 820 / 520 | A technical lane controller. Arrange the three zones around existing cover. | **Firewall** — Build a line of three overlapping damage zones across the aimed approach. **Third gadget: Lane Cutter, breaks walls.** |
-| Magnet / epic / 500 | 5050 / 1010 / 340 | A short-range displacement controller. Draw opponents out of safety for your teammates. | **Flux Well** — Create a gravity well that damages and pulls enemies toward its center without moving them through walls. |
-| Sentry / mythic / 900 | 4850 / 910 / 490 | A turret specialist. Cover placement and protecting the tower matter more than chasing. | **Watchtower** — Place a destructible long-lived watchtower that fires piercing shots down visible lanes. **Third gadget: Lane Cutter, breaks walls.** |
-| Tide / mythic / 900 | 4700 / 950 / 415 | A layered controller. Align the waves with the undertow to deny a moving target. | **Undertow** — Establish a pulling undertow and sweep three returning waves through its approach. |
-| Mosaic / legendary / 1500 | 4550 / 850 / 450 | A two-position controller. Split the turrets to make one flank difficult to ignore. | **Prism Garden** — Deploy two destructible mini-turrets around a temporary slowing field. **Third gadget: Lane Cutter, breaks walls.** |
-| Circuit / legendary / 1500 | 4650 / 820 / 560 | A timing-heavy controller. Sequence the hazards to shepherd enemies into the returning fire. | **Live Circuit** — Sequence three control fields while returning pulses sweep the route between them. |
+| Fighter | Rarity | HP | Damage | Range | Basic attack | Super |
+| --- | --- | ---: | ---: | ---: | --- | --- |
+| Relay | common | 4900 | 880 | 440 | Signal Bolt | Relay Turret |
+| Bastion | common | 5100 | 1000 | 360 | Bastion Strike | Hold the Line |
+| Glade | rare | 4750 | 800 | 460 | Glade Strike | Overgrowth |
+| Patch | rare | 4800 | 930 | 375 | Patch Strike | Crosspatch |
+| Cipher | epic | 4600 | 820 | 520 | Cipher Strike | Firewall |
+| Magnet | epic | 5050 | 1010 | 340 | Magnet Strike | Flux Well |
+| Sentry | mythic | 4850 | 910 | 490 | Sentry Strike | Watchtower |
+| Tide | mythic | 4700 | 950 | 415 | Tide Strike | Undertow |
+| Mosaic | legendary | 4550 | 850 | 450 | Mosaic Strike | Prism Garden |
+| Circuit | legendary | 4650 | 820 | 560 | Circuit Strike | Live Circuit |
+| Ulru | common | 4815 | 951 | 437 | Pulse | Iron Sentinel |
+| Ozoztor | common | 4798 | 1024 | 368 | Pulse | Iron Lockdown |
+| Zenmartu | rare | 4286 | 820 | 451 | Pulse | Neon Watchtower |
+| Marzelwyn | rare | 4558 | 846 | 385 | Pulse | Neon Gridlock |
+| Dexvex | epic | 4414 | 883 | 494 | Pulse | Royal Outpost |
+| Ibmiul | epic | 5532 | 916 | 326 | Pulse | Royal Snarefield |
+| Sorlumib | mythic | 5028 | 923 | 500 | Pulse | Arc Sentinel |
+| Vexprapra | mythic | 5086 | 978 | 418 | Pulse | Arc Lockdown |
+| Galhar | legendary | 4348 | 921 | 445 | Pulse | Ember Watchtower |
+| Marcypol | legendary | 4704 | 743 | 526 | Pulse | Void Gridlock |
+| Tuoz | legendary | 5318 | 854 | 455 | Pulse | Grim Outpost |
+| Torlum | ultra | 6040 | 1088 | 370 | Ultra Pulse | Grim Snarefield |
+| Turntable | rare | 5000 | 900 | 430 | Scratch Track | Dance Floor |
+| Marbles | epic | 4850 | 960 | 420 | Lost My Marbles | Do Not Step |
+| Loom | legendary | 4900 | 870 | 440 | Loose Thread | No Loose Ends |
 
-Class gadget families: **Level 5: Survey Pulse** — Place a slowing field for 3 seconds. (18s cooldown); **Level 10: Hold Fast** — Gain a 2-second shield and reload one ammo cell. (20s cooldown); **Level 15: Relay Burst** — Place a short damage and slow field. (22s cooldown); **Level 18: Lockdown Kit** — Place a four-second damage field and reload one ammo cell. (24s cooldown).
+## New signature kits
 
-Class passives: **Level 8: Zone Battery** — Your super charges faster while you stand near your own control fields or turret.; **Level 12: Defensive Lines** — Take 8% less damage near your own field or turret.; **Level 16: Wide Influence** — Your control fields have a 10% wider radius.; **Level 20: Area Mastery** — Your control-field and turret damage is 10% stronger..
+### Keg
 
-## Breaching restrictions
+Keg uses cask cannon. Roll in a staggered three-cask blast across the aimed area. Basic attack: Cask Cannon — cask. Taking enemy damage also charges its super.
 
-Super wall breakers: **Rook** (Faultline), **Fuse** (Fireworks), **Kiln** (Open Furnace), **Flint** (Breach Volley), **Orbit** (Impact Event), **Rampart** (Breach Rush), **Titan** (Aftershock), **Burst** (Demolition Line), **Pebble** (Shatter Grid), **Scoria** (Caldera), **Comet** (Orbital Breach). Controllers Cipher, Sentry and Mosaic may buy Lane Cutter as gadget III, replacing their normal third gadget. No Controller super breaks walls. Marksmen and assassins never break walls. Turrets are destructible and expire; they never count as students or capture occupants.
+Gadget: **Keg · Uncork** — Drop three short-fuse casks around yourself.
+
+### Torto
+
+Torto uses shell reversal. Advance behind a shell, slam, and shield nearby teammates. Basic attack: Shell Reversal — reversal. Taking enemy damage also charges its super.
+
+Gadget: **Torto · Reinforce** — Raise your shell for three seconds and slow nearby enemies.
+
+### Gravitas
+
+Gravitas uses gravity bell. Collapse a damaging gravity well that drags enemies toward its center. Basic attack: Gravity Bell — gravity. Taking enemy damage also charges its super.
+
+Gadget: **Gravitas · Converge** — Pull nearby enemies inward and leave a brief slowing well.
+
+### Mobius
+
+Mobius uses infinity ribbon. Tie a lane into three looping, returning ribbons.
+
+Gadget: **Mobius · Untwist** — For five seconds, ribbons pierce and curl through an extra-wide wave.
+
+### Poprock
+
+Poprock uses jawbreaker. Throw three candy boulders that burst into short-range shards.
+
+Gadget: **Poprock · Crunch Time** — For five seconds, each jawbreaker splits into three extra shards.
+
+### Ticktock
+
+Ticktock uses clockwork braid. Send a returning braid of four clockwork gears down the lane.
+
+Gadget: **Ticktock · Fast Forward** — Refill ammo and accelerate your braided gears for five seconds.
+
+### Thimble
+
+Thimble uses running stitch. Stitch three returning lines through allies and opponents.
+
+Gadget: **Thimble · Fine Thread** — Your stitching heals 80% more for five seconds.
+
+### Kettle
+
+Kettle uses tea time. Brew a large recovery zone that protects allies and scalds enemies.
+
+Gadget: **Kettle · Second Pour** — Your tea splashes are wider and heal 60% more for five seconds.
+
+### Parasol
+
+Parasol uses umbrella weather. Shield nearby allies while six umbrellas circle outward and return.
+
+Gadget: **Parasol · Gust** — Hop backward; umbrellas pierce and heal more for five seconds.
+
+### Doodle
+
+Doodle uses dotted triangle. Draw a triangle of three large ink splashes over cover.
+
+Gadget: **Doodle · Bold Outline** — Your ink splash radius grows 35% for five seconds.
+
+### Belljar
+
+Belljar uses spill zone. Break a huge jar into a long-lived slowing chemical puddle.
+
+Gadget: **Belljar · Long Steep** — Gain a brief shield; your next five seconds of puddles last longer.
+
+### Popcorn
+
+Popcorn uses kernel panic. Drop a bucket that pops into six smaller, delayed explosions.
+
+Gadget: **Popcorn · Extra Butter** — For five seconds, your kernels pop into two extra bomblets.
+
+### Skitter
+
+Skitter uses sidewinders. Dive in and release six curling fangs.
+
+Gadget: **Skitter · Curl Up** — Burst forward and send the next five seconds of fangs in tighter curves.
+
+### Glitch
+
+Glitch uses packet loss. Dash into stealth, leaving a hostile error field and an attackless clone.
+
+Gadget: **Glitch · Rollback** — Phase backward through incoming fire with a wall-respecting retreat.
+
+### Tripwire
+
+Tripwire uses double take. Change position and fan eight returning cards around yourself.
+
+Gadget: **Tripwire · House Trap** — Lay a line of three brief, visible pressure traps at your aim.
+
+### Parable
+
+Parable uses bent argument. Fire three long-range, gently curving piercing quills.
+
+Gadget: **Parable · Footnote** — Your quills pierce enemies and bend more sharply for five seconds.
+
+### Ricochet
+
+Ricochet uses bank shot. Send three long-lived bank shots through narrow routes.
+
+Gadget: **Ricochet · Double Bank** — Your basic shots can bounce from two extra walls for five seconds.
+
+### Pendulum
+
+Pendulum uses second hand. Sweep one enormous clock hand out and back through a lane.
+
+Gadget: **Pendulum · Slow Time** — Your next five seconds of returning hands slow targets on contact.
+
+### Turntable
+
+Turntable uses scratch track. Build a slowing dance floor around a beat-firing speaker.
+
+Gadget: **Turntable · Bass Drop** — Drop a short-range slowing rhythm field around yourself.
+
+### Marbles
+
+Marbles uses lost my marbles. Flood an area with bouncing marbles and a slowing center.
+
+Gadget: **Marbles · Spare Bag** — Burst five low-damage ricocheting marbles around yourself.
+
+### Loom
+
+Loom uses loose thread. Weave three interlocking control zones across the escape route.
+
+Gadget: **Loom · Tangled Exit** — Weave a perpendicular row of three short-lived slowing thread traps.

@@ -1,3 +1,33 @@
+# ZONEBREAK 1.2.8 — peculiar fighters and tank variety
+
+Adds 21 fighters, three in every class, bringing the roster to 175 (25 per class).
+New kits include returning ribbons, ricochets, splitting orbs, healing tea,
+control trails and curved projectiles. Each new fighter has its own super and
+signature gadget, plus four gadget and four passive choices.
+
+All 25 tanks now use different basic attack patterns: forward jabs, rear strikes,
+360-degree attacks, hooks, delayed quakes, returning discs and more. Their aim
+previews, weapon equipment and hit effects follow those attack patterns.
+Every fighter also has individual armor, visor and equipment details while
+retaining its class silhouette. Grey remains the only free starting color.
+
+Training now has a stationary healer on the left that shoots you every three
+seconds so you can test healing and damage-dependent abilities. Training has
+no rewards and can still be exited freely. Existing saves gain the new locked
+fighters without resetting coins, upgrades or owned cosmetics.
+
+Render: Build `npm ci --omit=dev`, Start `npm start`, Health Check Path `/health`.
+Upload the contents of ZONEBREAK, preserving vendor/ and test/.
+
+Current focused verification command:
+`node --test test/peculiar.test.cjs test/artillery-friends.test.cjs test/hyper-purchase.test.cjs test/hypercharge.test.cjs test/lootbox-cosmetics.test.cjs test/aim-controls.test.cjs test/aim-network.test.cjs test/deploy.test.cjs`
+
+These cover actual combat state, real WebSocket clients and a DOM/input fixture.
+They do not replace live browser multiplayer balance testing. Legacy tests below
+retain historical expectations and are not the current acceptance suite.
+
+## Previous release notes
+
 # ZONEBREAK 1.2.7 — artillery aiming and Friends bot difficulty
 
 Normal artillery attacks now have a movable landing marker. Move the captured
