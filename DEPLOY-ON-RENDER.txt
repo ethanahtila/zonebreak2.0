@@ -1,4 +1,4 @@
-ZONEBREAK 1.2.3 — original package layout restored
+ZONEBREAK 1.2.4 — original package layout restored
 
 1. Extract this ZIP, then open the ZONEBREAK folder.
 2. On GitHub choose Add file > Upload files.
@@ -40,4 +40,4 @@ the cursor. Normal aim always uses the outer edge of the white weapon guide.
 
 Grey defaults, white/yellow super rings and lower lootbox upgrade odds included.
 
-All fighters use the same shorter, faster 100-unit aiming steering radius.
+All fighters use the same balanced 150-unit aiming steering radius.

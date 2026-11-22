@@ -1,3 +1,17 @@
+# ZONEBREAK 1.2.4 — steadier aiming
+
+Turning uses a shared 150-unit steering radius, up from 100 in 1.2.3.
+Small mouse movements turn fighters about one-third slower than 1.2.3, while
+remaining faster than the original captured-aim controls. This applies equally
+to every class. Mouse capture, full attack ranges and super targeting remain.
+
+Keep the same working Render settings and folder upload process.
+Build: `npm ci --omit=dev`; Start: `npm start`; Health Check Path: `/health`.
+
+Earlier release notes follow for reference.
+
+---
+
 # ZONEBREAK 1.2.3 — faster shared turning
 
 All fighters now use a 100-unit steering radius, approximately the basic reach
