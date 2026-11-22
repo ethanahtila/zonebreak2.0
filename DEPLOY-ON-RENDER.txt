@@ -1,4 +1,4 @@
-ZONEBREAK 1.2.4 — original package layout restored
+ZONEBREAK 1.2.5 — original package layout restored
 
 1. Extract this ZIP, then open the ZONEBREAK folder.
 2. On GitHub choose Add file > Upload files.
@@ -41,3 +41,7 @@ the cursor. Normal aim always uses the outer edge of the white weapon guide.
 Grey defaults, white/yellow super rings and lower lootbox upgrade odds included.
 
 All fighters use the same balanced 150-unit aiming steering radius.
+
+Hypercharge: F activates an earned eight-second boost. Q/right mouse still aim
+supers. Active matches cannot be left via the menus; Training can be exited.
+No maps changed. See README.md for charge rules, poison and class upgrades.

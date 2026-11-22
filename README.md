@@ -1,3 +1,61 @@
+# ZONEBREAK 1.2.5 — Hypercharge
+
+Press **F** when the hypercharge meter reaches 100%. All fighters start with an
+empty meter. It takes 300 points of earned super-charge energy (three full
+supers' worth) to fill, including combat energy earned while a super is already
+ready. Activating it does not automatically fill or fire your super.
+
+For eight seconds, gain 20% movement speed, 25% faster reload and 15% stronger
+basic attacks. Supers gain 30% stronger damage/healing plus class upgrades:
+
+| Class | Additional upgrade |
+| --- | --- |
+| Tank | Extra shockwave and shielding |
+| Damage dealer | Extra rounds in directed volleys |
+| Healer | Wider fields and a nearby healing/shield pulse |
+| Artillery | Wider explosions leaving damaging purple ground |
+| Assassin | Brief protection and an extra close-range strike |
+| Marksman | Wider, piercing super rounds |
+| Controller | Wider fields and tougher, faster, longer-lasting turrets |
+
+Four jagged points appear on the ring only when hypercharge is ready or active.
+While active, the fighter has a moving purple flame aura; the super ring,
+targeting guide and empowered attacks turn purple. The meter cannot refill
+while active. The boost ends on defeat or a new round; unspent meter progress
+persists through respawns within the match. No new currency or purchase is needed.
+
+General passive super charging is removed. Only **Rook, Bulwark, Wisp and Nyx**
+retain slow automatic charging. Damage and healing charge supers; all tanks
+also charge from enemy damage taken. Environmental gas does not grant tank
+charge. Dynamo passives now increase combat charge instead of idle charging.
+
+**Bramble, Cinder, Needle, Fern and Shade** poison enemies with basic attacks for
+three seconds. Repeated hits refresh rather than stack the damage; poison has
+visible green droplets and credits the attacking fighter for damage/takedowns.
+
+In-game buttons and the multiplayer leave request cannot abandon an unfinished
+match, including the countdown. Escape still releases the mouse and opens the
+pause/menu. You can leave after the match ends. Training remains exit-able
+because it has no ending condition. Closing a browser, refreshes and network
+failures cannot be prevented; disconnects still hand the fighter to a bot.
+
+**Maps are unchanged**, as requested. The previous aiming speed, grey defaults,
+lootboxes, save key and Render setup remain.
+
+Build: `npm ci --omit=dev`; Start: `npm start`; Health Check Path: `/health`.
+Use the existing Node service and upload all ZONEBREAK contents, preserving
+vendor/ and test/. No separate assets or database changes are required.
+
+Focused checks:
+`node --test test/hypercharge.test.cjs test/lootbox-cosmetics.test.cjs test/aim-controls.test.cjs test/aim-network.test.cjs test/deploy.test.cjs`
+
+These use the real client with a DOM/input fixture, all 154 super implementations,
+a live WebSocket server, production startup, and rendered-art inspection. Real
+browser feel and group balance still require player testing. Historical notes
+and legacy tests below predate the expanded game.
+
+---
+
 # ZONEBREAK 1.2.4 — steadier aiming
 
 Turning uses a shared 150-unit steering radius, up from 100 in 1.2.3.

@@ -13,4 +13,7 @@ test('multiplayer retains a quick super release and its target until the next si
  ws._socket.cork();send({type:'input',seq:1,input:{aimX:p.x,aimY:p.y+600,super:true}});send({type:'input',seq:2,input:{aimX:p.x+500,aimY:p.y,super:false}});ws._socket.uncork();
  await until(()=>s.events.some(e=>e.type==='super'&&e.source===p.id));const shot=s.shots.find(q=>q.owner===p.id);assert(shot);assert(Math.abs(shot.dx)<1e-6);assert(shot.dy>.99);assert(shot.range<=Z.superRange(p.fighter));assert(p.charge<5);
  await new Promise(r=>setTimeout(r,80));assert.equal(s.events.filter(e=>e.type==='super'&&e.source===p.id).length,1);
+ send({type:'leave'});await until(()=>messages.some(m=>m.type==='error'&&m.message.includes('Finish the match')));assert.equal(app.peers.get(p.id).match,match.id);
+ p.hyperCharge=100;p.charge=100;ws._socket.cork();send({type:'input',seq:3,input:{aimX:p.x+500,aimY:p.y,hyper:true}});send({type:'input',seq:4,input:{aimX:p.x+500,aimY:p.y,hyper:false}});ws._socket.uncork();await until(()=>p.hyperTime>0);assert.equal(p.hyperCharge,0);await until(()=>messages.some(m=>m.type==='state'&&m.state.players.some(q=>q.id===p.id&&q.hyperTime>0)));
+ s.ended=true;s.phase='ended';s.winner=p.team;send({type:'leave'});await until(()=>messages.some(m=>m.type==='left'));assert.equal(app.peers.get(p.id).match,null);
 });
