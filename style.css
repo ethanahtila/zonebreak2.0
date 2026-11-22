@@ -38,3 +38,5 @@ body.playing #arena{cursor:none}
 #captureHint{position:fixed;z-index:12;left:50%;top:45%;transform:translate(-50%,-50%);background:#17333cf2;border:2px solid #eff0d9;border-radius:12px;padding:20px 28px;color:white;font-weight:800;letter-spacing:1px}body.playing:not(.mouse-locked) #arena{cursor:pointer}
 
 .hyper-ability{--accent:#c77dff;border-color:#c77dff66}.hyper-ability i{background:#c77dff}.hyper-ability.ready,.hyper-ability.active{border-color:#d6a3ff;box-shadow:0 0 18px #a24de744}.ability-group{max-width:100%;gap:8px}@media(max-width:1000px){.ability{min-width:100px}.ability strong{font-size:10px}}
+
+.hyper-upgrade{margin-top:20px;padding:16px;border:1px solid #c77dff55;border-radius:10px}.hyper-upgrade p{font-size:11px;color:#c5b7d7;line-height:1.6}

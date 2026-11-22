@@ -1,3 +1,33 @@
+# ZONEBREAK 1.2.6 — hypercharge purchase
+
+Hypercharge is a separate, permanent **2,500-coin purchase per fighter** in that
+fighter's menu. You must own the fighter and raise its base level to **20** first.
+Reaching level 20 does not grant it automatically. Power cubes cannot satisfy
+the requirement. Buying it for one fighter does not unlock it for another.
+
+Ownership saves alongside that fighter's upgrades. Duplicate purchases do not
+charge again, and existing profiles do not receive free hypercharges. All other
+coins, unlocks, colors and progress are preserved.
+
+Until purchased, the fighter cannot gain hypercharge meter, activate F, receive
+hypercharge stats or show its ready/active effects. The HUD explains the lock.
+After purchase, it still takes three super charges' worth of energy and activates
+with F for eight seconds, using the existing bonuses and class upgrades.
+
+Training remains a free max-level preview and does not grant permanent ownership.
+Bots may use a hypercharge loadout only at base level 20.
+
+The prior match-leaving, poison, map and aiming rules are unchanged. Keep your
+working Render settings: Build `npm ci --omit=dev`, Start `npm start`, Health
+Check Path `/health`. Upload all ZONEBREAK contents, preserving vendor/ and test/.
+
+Focused checks:
+`node --test test/hyper-purchase.test.cjs test/hypercharge.test.cjs test/lootbox-cosmetics.test.cjs test/aim-controls.test.cjs test/aim-network.test.cjs test/deploy.test.cjs`
+
+Earlier release notes follow for reference.
+
+---
+
 # ZONEBREAK 1.2.5 — Hypercharge
 
 Press **F** when the hypercharge meter reaches 100%. All fighters start with an
@@ -22,7 +52,7 @@ Four jagged points appear on the ring only when hypercharge is ready or active.
 While active, the fighter has a moving purple flame aura; the super ring,
 targeting guide and empowered attacks turn purple. The meter cannot refill
 while active. The boost ends on defeat or a new round; unspent meter progress
-persists through respawns within the match. No new currency or purchase is needed.
+persists through respawns within the match. Hypercharge ownership now follows the level-20 purchase rules above.
 
 General passive super charging is removed. Only **Rook, Bulwark, Wisp and Nyx**
 retain slow automatic charging. Damage and healing charge supers; all tanks

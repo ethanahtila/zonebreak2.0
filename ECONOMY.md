@@ -1,3 +1,12 @@
+# Hypercharge economy — 1.2.6
+
+Each fighter's hypercharge costs 2,500 coins and can only be purchased when the
+owned fighter reaches base level 20. It is a separate purchase after leveling,
+permanent for that fighter, and does not charge again if already owned. It is
+not a store color or global account unlock. Older free access is not ownership.
+
+---
+
 # Economy update — 1.2.2
 
 Lootboxes have six clicks with per-click upgrades of 45%, 25%, 12% and 5% for
