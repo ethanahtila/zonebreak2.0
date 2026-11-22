@@ -1,3 +1,19 @@
+# ZONEBREAK 1.2.3 — faster shared turning
+
+All fighters now use a 100-unit steering radius, approximately the basic reach
+of a tank, instead of 480. Small mouse movements therefore turn fighters about
+4.8 times faster regardless of their class or weapon range. Large single-event
+mouse deltas are bounded to prevent accidental instant direction flips.
+
+The mouse stays captured and hidden. Normal attacks still use their full weapon
+range and the white guide; artillery range and super targeting are unchanged.
+Grey defaults, super rings, lootboxes and player progress are preserved.
+
+Upload the ZONEBREAK contents as before. Keep your working Render settings:
+Build `npm ci --omit=dev`, Start `npm start`, Health Check Path `/health`.
+
+---
+
 # ZONEBREAK 1.2.2 — grey defaults, super rings and lootboxes
 
 Every fighter's default color is Grey. New profiles own only Grey; old free

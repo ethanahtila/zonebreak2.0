@@ -1,6 +1,6 @@
 (function(root,factory){const api=factory(typeof module==='object'&&module.exports?require('./roster.js'):root.ZoneRoster);if(typeof module==='object'&&module.exports)module.exports=api;else root.Zone=api;})(typeof globalThis!=='undefined'?globalThis:this,(Roster)=>{
 'use strict';
-const VERSION='1.2.2',DT=1/30,W=1280,H=860,TAU=Math.PI*2,clamp=(v,a,b)=>Math.max(a,Math.min(b,v)),dist=(a,b)=>Math.hypot(a.x-b.x,a.y-b.y);
+const VERSION='1.2.3',DT=1/30,W=1280,H=860,TAU=Math.PI*2,clamp=(v,a,b)=>Math.max(a,Math.min(b,v)),dist=(a,b)=>Math.hypot(a.x-b.x,a.y-b.y);
 const fighters=[
 {id:'rook',name:'Rook',role:'Tank',tag:'HOLD THE FRONT',color:'#f5bc63',dark:'#9f653b',hp:7600,speed:205,range:100,damage:1660,reload:1.05,rate:.64,r:25,description:'A walking fortress. Devastating at arm’s length, but needs cover to close the gap.',attack:'Pile Driver',super:'Faultline',superInfo:'Charge forward, slam nearby enemies, and gain a brief shield.',gadgets:[{name:'Iron Skin',info:'Take 40% less damage for 3 seconds.',cd:17},{name:'Second Wind',info:'Instantly restore 22% of maximum health.',cd:22}],passives:[{name:'Last Stand',info:'Take 15% less damage while below 35% health.'},{name:'Heavy Hands',info:'Basic hits briefly slow the target.'}]},
 {id:'jolt',name:'Jolt',role:'Damage dealer',tag:'MAKE EVERY BURST COUNT',color:'#8bc9ff',dark:'#466cb1',hp:4500,speed:230,range:475,damage:1050,reload:1,rate:.46,r:20,description:'A mid-range burst specialist. Consistent pressure, high damage, and a precise piercing super.',attack:'Tri-Burst',super:'Rail Surge',superInfo:'Fire a powerful piercing energy shot. Walls still block it.',gadgets:[{name:'Speedloader',info:'Instantly refill all three ammo cells.',cd:18},{name:'Power Cell',info:'The next basic attack within 5 seconds deals 45% more damage.',cd:19}],passives:[{name:'Deadeye',info:'Deal 12% more basic damage beyond half your range.'},{name:'Rapid Cycle',info:'Reload ammo 15% faster.'}]},
@@ -184,7 +184,7 @@ function rankedDraw(now=Date.now()){const slot=Math.floor(now/300000),R=mrng(Mat
 const maps=new Proxy({},{get:(_,id)=>typeof id==='string'?getMap(id.includes(':')?id:rotation(id).mapId):undefined});
 const mapOf=s=>getMap(s.mapId);
 // Stable virtual aim radius: turn sensitivity never increases near the fighter.
-function turnAim(angle,dx,dy){const R=480,x=Math.cos(angle)*R+clamp(Number(dx)||0,-120,120),y=Math.sin(angle)*R+clamp(Number(dy)||0,-120,120);return Math.atan2(y,x);}
+function turnAim(angle,dx,dy){const R=100;let mx=clamp(Number(dx)||0,-120,120),my=clamp(Number(dy)||0,-120,120);const n=Math.hypot(mx,my),k=n>R*.8?R*.8/n:1;mx*=k;my*=k;return Math.atan2(Math.sin(angle)*R+my,Math.cos(angle)*R+mx);}
 function superRange(id){const c=fighter(id),s=c.superSpec;
  if(s)return clamp(s.range||s.shots?.range||s.dash||c.range,60,1200);
  const ranges={deadstraight:950,crosswind:820,constellation:880,pinningshot:850,recoilshot:900,rally:190,thorns:160,furnace:210,hook:290,starburst:500,breach:530,return:570,refraction:510,heartwave:225,lifeline:600,halo:300,rescue:220,carpet:c.range,wildfire:c.range,rain:c.range,impact:c.range,nightfall:195,razordive:210,stormstep:340,soulrend:450};
