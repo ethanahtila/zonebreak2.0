@@ -44,3 +44,9 @@ body.playing #arena{cursor:none}
 .roster-tools{display:flex;gap:12px;margin-top:22px}.roster-tools label:first-child{flex:1}.roster-tools label{display:grid;gap:5px;font-size:11px;font-weight:700;letter-spacing:.06em}.roster-tools input,.roster-tools select{width:100%;min-width:0;padding:10px;border:1px solid #67818b;border-radius:8px;background:#18323e;color:#edf4f6}.roster-pages{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:12px}.roster-pages span{font-size:11px;color:#c0cfd3}.roster .fighter-card strong{overflow-wrap:anywhere}.roster .fighter-card small{line-height:1.4}.roster-tools label:first-child input{min-width:140px}
 
 .roster-tools{flex-wrap:wrap}.roster-tools label{min-width:140px}.roster-tools label:first-child{min-width:180px}.roster-tools label:not(:first-child){flex:0 1 auto}
+
+.class-cards{grid-template-columns:repeat(3,minmax(0,1fr))}.class-card{min-height:54px}.class-card strong{font-size:11px}
+
+.companion-controls{position:fixed;bottom:174px;left:26px;padding:10px 14px;background:#102b38e8;border:1px solid #8ba9b4;border-radius:12px;color:#ecf5f6;z-index:6;pointer-events:auto}.companion-controls strong{font-size:11px;display:block;margin-bottom:7px}.companion-controls div{display:flex;gap:7px}.companion-controls button{padding:7px 10px;border:1px solid #78919a;background:#203f4b;color:#eef6f8;border-radius:7px;font-size:11px}.companion-controls button.active{border-color:#e6faf1;background:#395d60}.companion-controls button:disabled{opacity:.5}.companion-controls kbd{font-weight:bold;margin-right:4px}
+
+.class-cards{grid-template-columns:repeat(5,minmax(0,1fr))}@media(max-width:1100px){.class-cards{grid-template-columns:repeat(3,minmax(0,1fr))}}

@@ -1,4 +1,4 @@
-ZONEBREAK 1.3.1 — all-class attack rework and Training water
+ZONEBREAK 1.4.1 — all-class attack rework and Training water
 
 1. Extract this ZIP, then open the ZONEBREAK folder.
 2. On GitHub choose Add file > Upload files.
@@ -31,7 +31,7 @@ Folder guide:
 If .node-version does not upload, setting NODE_VERSION=24 in Render handles it.
 There is no folder named version in the package. Do not flatten vendor/ws/lib.
 
-This package includes the updated 1.3.1 gameplay and generated PLAY.html.
+This package includes the updated 1.4.1 gameplay and generated PLAY.html.
 
 CONTROLS UPDATE: Hold Q/right mouse to aim supers; release to cast. Escape frees
 the cursor. Direct-fire aim uses the outer edge of the white guide; lobbed targets move within range.
@@ -53,11 +53,18 @@ Friends: host chooses Bot Difficulty in the room before starting a match.
 175 fighters (25 per class), 25 different tank basics, individual appearance details,
 and a Training healer on the left shooting every 3 seconds.
 
-1.3.1: all 150 non-tank basics reworked with matching guides and projectile shapes.
+1.4.1: all 150 non-tank basics reworked with matching guides and projectile shapes.
 Training now has two ponds; previous tank updates and the medic remain.
 
-1.3.1: 1,400 fighters, 200 per class, all six rarities. New searchable, paged roster.
+1.4.1: 1,800 fighters, 200 per class, all six rarities. New searchable, paged roster.
 Upload all files together. Existing profile keys and original fighter IDs retained.
 
-1.3.1: SORT BY now offers Rarity, Power level and Trophies; preference is saved.
+1.4.1: SORT BY now offers Rarity, Power level and Trophies; preference is saved.
 Power/trophies sort owned fighters first, then use rarity for ties/locked fighters.
+
+1.4.1: Pilot and Architect added, 200 each (1,800 fighters total).
+Pilot: Q summons; E boards/exits; hold R to repair; Q in-mech is its combat super.
+Architect: Q previews/places destructible, temporary construction.
+
+1.4.1: Summoner added, 200 fighters (2,000 total across ten classes).
+Q summons/commands; 1 Follow, 2 Attack, 3 Guard. E gadget; F hypercharge.

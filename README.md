@@ -1,3 +1,124 @@
+# ZONEBREAK 1.4.1 — Summoner class
+
+Adds 200 Summoners, bringing the roster to 2,000 fighters across ten classes.
+The class has 50 Common, 50 Rare, 40 Epic, 30 Mythic, 25 Legendary and five Ultra
+fighters. New fighters start locked and grey, with the existing recruitment,
+lootbox, upgrade and Training-preview rules. All existing IDs and saved progress
+remain intact. As in the earlier expansions, the additional fighters use distinct
+combinations of shared modular attack, ability, passive and appearance systems.
+
+## Companion controls
+
+- Q: summon your companion group after charging your super through combat.
+- Q while any group member survives: use the companion’s command ability instead
+  of summoning extra units. Defeated members of a partial pack are not refilled.
+- 1: Follow the handler and attack nearby opponents.
+- 2: Attack the aimed location and engage enemies around it.
+- 3: Guard the aimed location. The point is bounded by a 650-unit command radius.
+- E: use the selected purchased gadget, including its companion bonus.
+- F: purchased hypercharge, following the existing level-20 rules.
+
+The HUD shows companion count, combined current HP, order and shortcut buttons.
+Orders are sequenced and synchronized with normal multiplayer input so an older
+packet cannot overwrite a newer command. The chosen order persists until changed.
+Companions regroup when they become too far from the handler.
+
+Most Summoners have one main companion. A smaller number have packs of two or
+three, sharing the group health/damage budget. Companion forms include bruisers,
+rangers, stalkers, beetles, menders, temporary spirits, mortars and hounds.
+Commands include rush, volley, ward, rally, overdrive, nova, snare and crossfire.
+Gadget bonuses recall/rally, shield, heal or focus the group; higher-level passive
+choices include conditional bonuses for staying together, splitting positions
+or keeping a companion alive.
+
+Companions have independent HP, can be attacked and defeated, and disappear when
+their handler is defeated. Spirits also expire. They navigate through ordinary
+routes around walls and water, including Architect bridges and gates; recall
+speeds their return rather than teleporting them. Attacks have a short windup
+and finite travel/range. Companion damage is credited to the handler but charges
+supers more slowly than direct player damage. Showdown power cubes scale living
+companions as well as their handler. Companions do not collect items, occupy
+objectives, score goals or count as additional students/fighters for match rules.
+
+## Performance and deployment
+
+Companions are simulated by the server with a maximum of three living units per
+Summoner. Navigation uses cached map grids and limited path refreshes. The full
+fighter catalogue is not sent in live snapshots. The roster stays paged and
+searchable, with saved rarity/power/trophy sorting.
+
+Render settings remain Node 24; Build `npm ci --omit=dev`; Start `npm start`;
+Health Check Path `/health`. Upload all contents of ZONEBREAK, keeping vendor/
+and test/. PLAY.html is included for standalone practice.
+
+Run `npm test` for the current acceptance checks, including all 200 summoning/
+command kits, all orders, navigation, combat credit, defeat/expiry, progression,
+client controls, real multiplayer synchronization and a ten-handler pack match.
+Native canvas verification renders all 2,000 handler portraits, companion
+variants and sampled command scenes. Live player balance testing remains useful.
+
+## Earlier release notes
+
+# ZONEBREAK 1.4.0 — Pilots and Architects
+
+Adds 200 Pilots and 200 Architects, for 1,800 fighters across nine classes. Each
+new class has 50 Common, 50 Rare, 40 Epic, 30 Mythic, 25 Legendary and five Ultra
+fighters. Existing 1,400 fighter IDs, progression and roster sort preferences stay
+intact. All added fighters begin locked and grey, available through recruitment,
+lootboxes and max-level Training previews using the existing progression rules.
+The additional fighters use the same compact modular kit system as the roster.
+
+## Pilot controls
+
+- Start a match/round on foot with a fully charged Q super. Q summons one mech.
+- E boards a nearby owned mech, or exits it. The utility is available at level 1
+  and has a 1.2-second cooldown. Purchased gadget choices add optional bonuses
+  with their own longer cooldowns; they do not gate boarding or exiting.
+- Mechs have tank-scale HP and attacks, with the same level scaling. The pilot
+  keeps a separate, much weaker health pool and sidearm while outside.
+- Hold R while stationary within 120 units of your parked mech to repair 12% of
+  its max HP per second. Firing or moving stops repair. Occupied mechs do not
+  regenerate naturally. Allied healing can still restore their health.
+- While piloting, Q uses a separate combat super after charging through combat.
+- A destroyed mech ejects its living pilot, preserving the on-foot health from
+  before boarding and giving a brief 0.8-second grace period. Destroying the
+  mech does not count as a fighter knockout; the pilot can still be defeated.
+- Empty mechs are attackable. Only their owner may board them. A surviving
+  deployed mech must be reused; Q cannot replace it for a free refill.
+
+## Architect construction
+
+Each Architect has a wall, cycling gate, bridge or rotating-cover blueprint.
+Hold Q/right mouse to preview its 40-unit grid placement, then release to build.
+Invalid placements keep the super charge and display the reason.
+
+Construction takes 0.65 seconds, has its own destructible HP, expires after a
+short lifetime and is capped at three structures per owner. A fourth replaces
+the oldest. Both teams can use bridges and open gates. Gates cycle open/closed
+and will not close onto a fighter; cover rotation checks collision and routes.
+
+Solid construction cannot overlap actors, cover or water, block goals/spawns or
+seal objectives. Route checks account for pending construction and closed gates;
+activation waits if a fighter has moved into danger. Bridges carve walkable
+corridors through water for both teams. Expiry/destruction restores water
+collision and invalidates navigation grids. This release implements walls, gates,
+bridges and rotating cover; other terrain tools can be added as future kits.
+Purchased Architect gadgets add construction repairs, safe rotation, gate
+control or reinforcement alongside their normal bounded effects.
+
+## Deployment and checks
+
+Render settings are unchanged: Node 24; Build `npm ci --omit=dev`; Start
+`npm start`; Health Check Path `/health`. Upload the contents of ZONEBREAK,
+preserving vendor/ and test/. PLAY.html is the standalone practice build.
+
+`npm test` runs the current acceptance suite, including new class lifecycles,
+all 400 new fighters, repairs, ejection, construction, profile/roster behavior
+and real multiplayer synchronization. Native canvas checks render every fighter
+and every mech form. Live player balance testing remains useful.
+
+## Earlier release notes
+
 # ZONEBREAK 1.3.1 — roster sorting
 
 The roster now defaults to rarity, from Common to Ultra. SORT BY also offers
