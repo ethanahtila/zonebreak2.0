@@ -1,3 +1,52 @@
+# ZONEBREAK 1.6.3 — Skilled class and Ranked readiness
+
+Adds exactly **100 Skilled fighters**, for **2,100 total across eleven classes**.
+The original ten classes retain 200 fighters each. Skilled has 25 Common, 25 Rare,
+20 Epic, 15 Mythic, 12 Legendary and three Ultra fighters. All use the existing
+recruitment, lootbox, upgrade, grey starting colour and Training rules. A Common
+Skilled starter joins Trophy Road at 850 trophies; older profiles already past
+850 receive that starter on reload. Other new Skilled fighters remain locked.
+
+## Precision mechanics
+
+Skilled kits use ten shared attack families with different tuning and modular
+ability/passive combinations: all-wall ricochets, moving straight bursts, moving
+ricochet bursts, offset piercing rails, returning cuts, paired curves, delayed
+needle shots, steerable fans, braided needles and steerable banking volleys.
+All have five-star mastery difficulty. The class has distinct precision-rifle
+appearance details and its own class browser section; it is not a move of old IDs.
+
+- All-wall ricochets reflect on every cover wall, Architect wall and arena edge
+  they reach. Total travel range still runs out; a short lifetime guard also
+  clears shots accidentally spawned inside solid geometry.
+- A white banking preview shows the initial ricochet path, not an auto-aim path.
+- Moving volleys take each delayed round’s origin from the fighter’s position
+  at that round’s launch. Once launched, each projectile flies independently.
+- Straight bursts keep the initial firing direction; steerable variants use
+  live aim for later shots. Defeat cancels the remainder of a burst.
+- Existing non-Skilled volleys keep their previous origin rules.
+
+## Ranked and Summoner balance
+
+Ranked still unlocks at 1,000 Trophy Road trophies. The **selected fighter must
+also be level 16 or above**. Both menu and server reject lower-level entry; the
+server’s timeout-fill Ranked bots also have a minimum level of 16. Casual play
+and Training keep their existing level rules.
+
+Summoners gain **50% more super charge** from the same charge-producing damage,
+healing, companion contribution and other charge events. No passive automatic
+charge is added. Companion contribution is still reduced before the multiplier.
+Hypercharge uses the same multiplier, preserving three super charges’ worth of
+combat energy per hypercharge. Mutation builds using a Summoner super benefit too.
+
+Existing profile storage and purchases are retained. New kits remain modular;
+this update does not claim 100 completely separate animation systems.
+
+Build `npm ci --omit=dev`; Start `npm start`; Health Check Path `/health`.
+Node 24. Upload all ZONEBREAK contents, preserving test/ and vendor/.
+
+---
+
 # ZONEBREAK 1.6.0 — Mutation Madness
 
 Mutation Madness unlocks at 900 Trophy Road trophies, before Ranked at 1,000,
