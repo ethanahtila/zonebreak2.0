@@ -95,3 +95,14 @@ This is only an example from seed 42. Actual profiles have their own saved seed 
 ## Daily chests
 
 Five wins per Eastern-Time day earn five daily chests; bonus road chests do not use daily slots. Six clicks per chest, saved between visits. Upgrade chances are 60% / 40% / 25% / 12%, one tier per success. Legendary has a 25% chance to directly unlock an unowned fighter. Other payouts have a 25% chance to be credits instead of coins: 30 / 70 / 150 / 300 / 500 by rarity. Remaining coin amounts are 60–100 / 120–180 / 240–360 / 500–750 / 1,000–1,500.
+
+
+## 1.5.1 ability lootboxes
+
+Final Mythic: 5% gadget/passive combined.
+Final Legendary: 8% gadget/passive combined, plus 2% hypercharge.
+One reward per box. Pick once from one equal-chance pool of ALL level-eligible gadgets and passives
+on unlocked fighters, including owned abilities. The chosen ability being owned
+pays 1,000 coins, with no reroll. An empty level-eligible pool also pays 1,000 coins.
+Hypercharge selects a random owned fighter regardless of level; duplicates pay
+2,500 coins. Early ownership persists but remains inactive until level 20.

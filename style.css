@@ -54,3 +54,5 @@ body.playing #arena{cursor:none}
 #breakControls{max-width:400px;padding:9px 13px;border:1px solid #74d8c6;border-radius:9px;background:#142b35e8;color:#e7fffa;font-size:11px;pointer-events:none}#breakControls[hidden]{display:none}#breakControls strong{display:block;margin-bottom:4px;color:#b5ffe9}
 
 #breakControls{position:absolute;left:50%;top:94px;transform:translateX(-50%);text-align:center}
+
+#mutationBuild{position:fixed;top:92px;left:50%;transform:translateX(-50%);width:min(94vw,980px);padding:8px;background:#17353eeb;border:1px solid #8ed6b4;border-radius:8px;text-align:center;font-size:11px;pointer-events:none}#mutationSpin{position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);background:#122f3df5;border:2px solid #d8c48d;border-radius:18px;width:390px;padding:16px;text-align:center;z-index:10;pointer-events:none}#mutationSpin strong,#mutationSpin small{display:block}#mutationSpin small{font-size:11px;color:#bcd3c4}

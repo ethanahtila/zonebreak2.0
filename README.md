@@ -1,3 +1,80 @@
+# ZONEBREAK 1.6.0 — Mutation Madness
+
+Mutation Madness unlocks at 900 Trophy Road trophies, before Ranked at 1,000,
+and requires at least five owned fighters. Choose the 3v3 or Duel card. Play
+against bots, in a friends room, or in the separate online matchmaking queue.
+It is not part of Ranked’s rotation.
+
+Before combat, a nine-second wheel sequence draws five distinct fighters from
+YOUR owned roster, each equally likely among the remaining fighters, in order:
+
+| Spin | Borrowed trait |
+| --- | --- |
+| 1 | Speed (and innate water traversal) |
+| 2 | Basic damage / healing strength |
+| 3 | Maximum health |
+| 4 | Super, including its normal utility controls |
+| 5 | Basic attack shape, range, projectiles, cadence and reload |
+
+Each winning fighter is removed from the wheel for the remaining spins. Donor
+stats use that fighter’s owned level, not the selected fighter’s level. Super
+power values use the super donor’s level. The same build stays throughout all
+rounds, and its five sources remain visible in the match HUD. The selected fighter
+remains the profile/trophy identity; rolls do not change or spend your collection.
+
+Rounds follow Knockout: one life per round, closing poison gas, and a round
+timeout decided by surviving health fractions. Tied rounds do not award a win.
+**First to five round wins**, with no ten-minute override ending the match early.
+Duel uses the existing Duel map rotation; 3v3 uses the Knockout maps.
+
+This five-trait mode disables equipped gadgets, passives, gears and hypercharge.
+Their saved ownership is retained. Pilot-super builds still use E to board/exit
+and R to repair; Summoner-super builds keep 1/2/3 companion orders; Architect
+supers still preview and place construction. Pilot mechs retain their separate
+mech HP pool; their basic attack and movement still follow the mutation donors.
+
+The remaining class starters appear at 700, 800 and 875 trophies, so the road
+now provides a starter from every class before the mode unlock. Existing profiles
+past those new milestones receive missing new starter rewards once on reload.
+
+Multiplayer sends the compact owned-fighter/level wheel list at setup and validates
+five owned fighters plus 900 trophies before entry. Only the five chosen donors
+are replicated in match snapshots. As with the existing game, ownership/progression
+is browser-local rather than a server-authenticated account.
+
+Build `npm ci --omit=dev`; Start `npm start`; Health Check Path `/health`.
+Keep Node 24. Upload the contents of ZONEBREAK, preserving test/ and vendor/.
+No new dependencies or external artwork. `npm test` includes mixed-donor attacks,
+class-special supers, round rules, real-client wheel controls and real WebSockets.
+
+---
+
+# ZONEBREAK 1.5.1 — Lootbox ability rewards
+
+Mythic lootboxes have a 5% combined chance to award a gadget or passive;
+Legendary lootboxes have an 8% combined chance. Every level-eligible gadget and passive on every unlocked fighter enters one
+equal-chance pool, including purchased/owned abilities. The box picks exactly
+once. If that specific ability is already owned, it pays exactly 1,000 coins
+instead, with no reroll or search for missing abilities. If no ability meets
+any owned fighter’s level yet, it also pays 1,000 coins. Existing equipment is kept.
+
+Legendary lootboxes separately have a 2% hypercharge reward chance. This chooses
+one of your unlocked fighters regardless of its level. If that fighter already
+owns its hypercharge, you receive exactly 2,500 coins, without rerolling the fighter.
+Ownership earned below level 20 is saved and activates when the fighter reaches
+level 20. Purchasing and using hypercharge still require level 20.
+
+Odds apply to the lootbox’s final rarity after all six clicks, from any source.
+A box awards one reward once. Common, Rare and Epic cannot award these abilities.
+Existing claimed boxes are untouched. Existing normal rewards fill the remainder.
+The opening screen names the fighter and ability, or clearly labels a coin fallback.
+No new currency, dependencies or Render configuration changes.
+
+Build: `npm ci --omit=dev`; Start: `npm start`; Health Check Path: `/health`.
+Upload all contents of ZONEBREAK, preserving test/ and vendor/.
+
+---
+
 # ZONEBREAK 1.5.0 — Zonebreak mode
 
 Zonebreak is a 3v3 capture-and-defend mode with three predictable terrain switches.
