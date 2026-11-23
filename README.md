@@ -1,3 +1,21 @@
+# ZONEBREAK 1.6.5 — Max-level Mutation Madness
+
+All five Mutation Madness donors now contribute **level 20 stats**, regardless
+of their owned upgrade level. This covers speed, damage/healing, health, super
+power, basic attacks, and class-specific summoned/mech/construction scaling.
+The same rule applies in Duel, 3v3, solo bots and online matches, for every round.
+
+The wheel still only selects owned fighters without replacement. Five owned
+fighters and the 900-trophy unlock remain required. Wheel results and the match
+HUD show level 20 stats. This is a match-only rule: it does not buy upgrades,
+spend coins, change saved fighter levels, unlock gadgets/passives/hypercharge,
+or change levels in regular matches or Ranked.
+
+Render settings remain: Build `npm ci --omit=dev`; Start `npm start`;
+Health Check Path `/health`. Upload all enclosed ZONEBREAK contents.
+
+---
+
 # ZONEBREAK 1.6.4 — Thin-guide aim alignment
 
 Direct-fire input now sends the displayed guide’s direction explicitly instead
@@ -90,8 +108,8 @@ YOUR owned roster, each equally likely among the remaining fighters, in order:
 | 5 | Basic attack shape, range, projectiles, cadence and reload |
 
 Each winning fighter is removed from the wheel for the remaining spins. Donor
-stats use that fighter’s owned level, not the selected fighter’s level. Super
-power values use the super donor’s level. The same build stays throughout all
+stats use level 20 for every donor, regardless of owned level. Super
+power values also use level 20. The same build stays throughout all
 rounds, and its five sources remain visible in the match HUD. The selected fighter
 remains the profile/trophy identity; rolls do not change or spend your collection.
 
