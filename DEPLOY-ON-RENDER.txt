@@ -1,4 +1,4 @@
-ZONEBREAK 1.6.3 — Skilled class / Ranked level 16
+ZONEBREAK 1.6.4 — Thin-guide aim alignment
 
 1. Extract this ZIP, then open the ZONEBREAK folder.
 2. On GitHub choose Add file > Upload files.
@@ -31,7 +31,7 @@ Folder guide:
 If .node-version does not upload, setting NODE_VERSION=24 in Render handles it.
 There is no folder named version in the package. Do not flatten vendor/ws/lib.
 
-This package includes the updated 1.6.3 gameplay and generated PLAY.html.
+This package includes the updated 1.6.4 gameplay and generated PLAY.html.
 
 ZONEBREAK MODE (unlocks at 750 trophy-road trophies)
 3v3. Hold the relay. First to 150 points, or the lead at three minutes, wins.
@@ -41,22 +41,27 @@ Architects interact faster and from farther away. All fighters can activate.
 Includes solo bots, friends rooms, matchmaking and ranked rotation.
 Existing 2,000 fighters and saved profiles are preserved.
 
-1.6.3 LOOTBOX REWARDS
+1.6.4 LOOTBOX REWARDS
 Mythic: 5% gadget/passive combined. Legendary: 8% combined plus 2% hypercharge.
 All level-eligible gadgets/passives on owned fighters share one equal-chance pool.
 Owned abilities stay in the pool; a duplicate gives 1,000 coins with no reroll.
 Random owned-fighter hypercharge at any level; duplicates give 2,500 coins.
 Early hypercharges stay saved and become usable at level 20.
 
-1.6.3 MUTATION MADNESS
+1.6.4 MUTATION MADNESS
 Unlock: 900 Trophy Road trophies plus five owned fighters. Duel and 3v3.
 Five wheel spins: speed, damage, health, super, attack. No repeated donor.
 Keep the build for the whole match. Knockout rounds, first team to FIVE wins.
 Equipped extras disabled only in this mode; Pilot/Summoner utility controls stay.
 Render settings remain unchanged.
 
-1.6.3
+1.6.4
 100 Skilled fighters; all existing classes keep 200. 2,100 total.
 Finite-range all-wall ricochets and bursts fired from your live standing position.
 Ranked: selected fighter must be level 16+, plus the existing 1,000-road unlock.
 Summoners charge supers 50% faster. Render settings stay unchanged.
+
+1.6.4: Fighter facing and direct fire use the displayed guide heading.
+Thin-line burst follow-ups follow the current guide and launch position.
+Lobbed landing markers and held super controls keep their separate aiming rules.
+Render build/start/health settings are unchanged.

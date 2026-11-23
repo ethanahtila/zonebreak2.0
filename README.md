@@ -1,3 +1,27 @@
+# ZONEBREAK 1.6.4 — Thin-guide aim alignment
+
+Direct-fire input now sends the displayed guide’s direction explicitly instead
+of relying only on a world-space cursor point. Fighter facing, client prediction
+and the authoritative attack all use that heading, so movement and multiplayer
+position corrections cannot rotate a narrow shot away from its guide.
+
+Thin straight-line burst follow-ups also use the current guide heading and
+current firing position when they launch. Already-launched bullets keep flying
+independently. In particular, a burst no longer retains a stale direction while
+the visible line turns elsewhere. Spread offsets, parallel lanes, curves,
+ricochets and projectile sizes keep their intended geometry. Lobbed landing
+markers and held/released super targets retain their separate aiming controls.
+
+The local fighter’s rendered facing is updated from the same freshly positioned
+guide endpoint in the current frame, rather than a previous endpoint computed
+before prediction correction. The hidden pointer is not a second aiming target.
+
+All 2,100 fighters, 100 Skilled kits, level-16 Ranked and the Summoner charge
+increase remain. No changes to saved profile format or Render configuration.
+Build `npm ci --omit=dev`; Start `npm start`; Health Check Path `/health`.
+
+---
+
 # ZONEBREAK 1.6.3 — Skilled class and Ranked readiness
 
 Adds exactly **100 Skilled fighters**, for **2,100 total across eleven classes**.
