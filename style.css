@@ -56,3 +56,5 @@ body.playing #arena{cursor:none}
 #breakControls{position:absolute;left:50%;top:94px;transform:translateX(-50%);text-align:center}
 
 #mutationBuild{position:fixed;top:92px;left:50%;transform:translateX(-50%);width:min(94vw,980px);padding:8px;background:#17353eeb;border:1px solid #8ed6b4;border-radius:8px;text-align:center;font-size:11px;pointer-events:none}#mutationSpin{position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);background:#122f3df5;border:2px solid #d8c48d;border-radius:18px;width:390px;padding:16px;text-align:center;z-index:10;pointer-events:none}#mutationSpin strong,#mutationSpin small{display:block}#mutationSpin small{font-size:11px;color:#bcd3c4}
+
+#duelChoices,#roomDuelChoices{padding:10px;border:1px solid #a6c3bb55;border-radius:8px;margin:10px 0;font-size:11px}.duel-selects{display:grid;gap:6px;margin:8px 0}.duel-selects select{width:100%;padding:8px;background:#203f49;color:#eff5e8;border:1px solid #78978f}#duelStatus{position:fixed;left:50%;top:92px;transform:translateX(-50%);width:min(94vw,1050px);padding:8px;background:#142f3bea;text-align:center;font-size:11px;border:1px solid #96bfba;border-radius:8px;pointer-events:none}

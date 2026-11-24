@@ -1,3 +1,40 @@
+# ZONEBREAK 1.6.8 — Three-fighter Duel
+
+Regular Duel now uses an ordered lineup of **three different owned fighters**.
+Choose slots 1–3 in the main menu or inside your friends room. Choices are saved
+on this browser. The first fighter starts, and only a defeated fighter is replaced
+by that side’s next selection. The surviving fighter stays in and keeps remaining
+health. Defeating the opponent’s third fighter wins, so a survivor can sweep all
+three or both players can work through their lineups. Bots have three distinct
+fighters too. Mutation Madness Duel and Knockout retain their existing rules.
+
+Super and hypercharge meter amounts carry forward for both sides exactly; they
+are not reset or filled for the next bout. Pilots start Duel with no free super,
+and receive no free full meter when switched in. Active hypercharge effects end
+at a bout transition; only the charged meter amount carries. A fighter still
+needs its normal level/ownership to activate hypercharge. If a middle fighter
+cannot use it, the amount remains banked for a later eligible fighter.
+
+Each fighter uses its own saved level, colour, equipment and hypercharge ownership.
+New fighters enter at full health. Old summons, mechs, fields, shots and clones are
+cleared between bouts, followed by the normal short countdown. Poison gas resets.
+A timeout eliminates the lower health-fraction fighter; equal health fractions
+eliminate both. Simultaneous final defeats draw the match. Super/hyper meters
+remain unchanged during the round-result pause and countdown.
+
+Duel’s 275-trophy road unlock stays the same, with three owned fighters required.
+Matchmaking uses the lead fighter’s trophies. Match trophies and progression stay
+assigned to that lead fighter rather than the last fighter that happened to be
+active. The HUD shows the ordered lineup and defeated slots. Server entry checks
+reject duplicate selections and selections absent from the owned roster.
+
+Existing solo/online/friends flows, all other modes and saved purchases remain.
+No new dependencies or external artwork. Build `npm ci --omit=dev`;
+Start `npm start`; Health Check Path `/health`; Node 24. Upload all contents of
+ZONEBREAK, preserving test/ and vendor/.
+
+---
+
 # ZONEBREAK 1.6.7 — New Mutation wheels every round
 
 Mutation Madness now spins a fresh five-trait build **before every round** in
