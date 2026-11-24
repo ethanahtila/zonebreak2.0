@@ -1,3 +1,33 @@
+# ZONEBREAK 1.6.7 — New Mutation wheels every round
+
+Mutation Madness now spins a fresh five-trait build **before every round** in
+both Duel and 3v3. Each round starts with the complete owned-fighter roster again,
+so a fighter picked in a previous round can be picked again. A fighter is removed
+only from that round’s remaining spins: speed, damage, health, super, then attack.
+All donor stats remain level 20. Five owned fighters and 900 trophies are still
+required. The first team to five round wins takes the match; drawn rounds also
+lead to a new wheel. There is no extra wheel after the deciding fifth win.
+
+The normal round-result pause is followed by the nine-second wheel sequence and
+combat countdown. The old round’s attacks, summons, mechs, construction, held
+combat inputs and super charge are cleared before applying the new traits.
+A newly rolled Pilot super starts ready under the existing Pilot rule.
+Owned rosters are retained privately by the match authority and never included
+in live match snapshots. Bots reset their donor pools too. Saved profile levels
+and regular game modes are unchanged.
+
+Build `npm ci --omit=dev`; Start `npm start`; Health Check Path `/health`.
+Keep Node 24. Upload all ZONEBREAK contents, preserving vendor/ and test/.
+
+All 200 Summoners now auto-charge supers at a final **5 charge points/second**
+while alive in active play: approximately 20 seconds from empty without combat.
+Combat charging retains its 50% bonus and can fill the meter sooner. Passive
+charge recharges companion command supers too; it does not fill hypercharge.
+Dead fighters, wheel animations, countdowns and round breaks do not auto-charge.
+Mutation builds with a Summoner super receive the same auto-charge.
+
+---
+
 # ZONEBREAK 1.6.5 — Max-level Mutation Madness
 
 All five Mutation Madness donors now contribute **level 20 stats**, regardless
@@ -109,8 +139,7 @@ YOUR owned roster, each equally likely among the remaining fighters, in order:
 
 Each winning fighter is removed from the wheel for the remaining spins. Donor
 stats use level 20 for every donor, regardless of owned level. Super
-power values also use level 20. The same build stays throughout all
-rounds, and its five sources remain visible in the match HUD. The selected fighter
+power values also use level 20. A new build is spun before every round, and its five sources remain visible in the match HUD. The selected fighter
 remains the profile/trophy identity; rolls do not change or spend your collection.
 
 Rounds follow Knockout: one life per round, closing poison gas, and a round

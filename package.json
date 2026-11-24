@@ -1,6 +1,6 @@
 {
   "name": "zonebreak",
-  "version": "1.6.5",
+  "version": "1.6.7",
   "private": true,
   "description": "A compact original top-down team arena game.",
   "engines": {
@@ -8,6 +8,6 @@
   },
   "scripts": {
     "start": "node server.cjs",
-    "test": "node --test test/guide-alignment.test.cjs test/skilled.test.cjs test/mutation.test.cjs test/loot-abilities.test.cjs test/zonebreak.test.cjs test/summoner.test.cjs test/pilot-architect.test.cjs test/roster-sort.test.cjs test/grand-roster.test.cjs test/arsenal.test.cjs test/peculiar.test.cjs test/artillery-friends.test.cjs test/hyper-purchase.test.cjs test/hypercharge.test.cjs test/lootbox-cosmetics.test.cjs test/aim-controls.test.cjs test/aim-network.test.cjs test/deploy.test.cjs"
+    "test": "node --test test/summoner-auto.test.cjs test/guide-alignment.test.cjs test/skilled.test.cjs test/mutation.test.cjs test/loot-abilities.test.cjs test/zonebreak.test.cjs test/summoner.test.cjs test/pilot-architect.test.cjs test/roster-sort.test.cjs test/grand-roster.test.cjs test/arsenal.test.cjs test/peculiar.test.cjs test/artillery-friends.test.cjs test/hyper-purchase.test.cjs test/hypercharge.test.cjs test/lootbox-cosmetics.test.cjs test/aim-controls.test.cjs test/aim-network.test.cjs test/deploy.test.cjs"
   }
 }
